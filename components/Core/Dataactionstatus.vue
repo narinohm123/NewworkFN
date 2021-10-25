@@ -3,32 +3,29 @@
     <div>
         <div style="height: 1.5vh;"></div>
         <div class="Hed">
-            <h1 class="font-weight-black" style=" font-size: 1.2em;">ข้อมูลอัตรากำลังบุคลากรสายวิชาการ ประจำปีงบประมาณ </h1>
+            <h1 class="font-weight-black" style=" font-size: 1.2em;">สถานะการดำเนินการประเมินผลการสอนและเอกสารที่ใช้ประเมินผลการสอน</h1>
         </div>
     </div>
-<div class="HTable">
     <v-simple-table >
         <template v-slot:default>
             <thead>
                 <tr>
-                    <th class="text-center font-weight-black" style=" font-size: 1em;" rowspan="2">สาขาวิชา</th>
-                    <th class="text-center" style=" font-size: 1em;" colspan="2">ระดับการศึกษา</th>
-                    <th class="text-center" style=" font-size: 1em;" rowspan="2">ผู้ช่วยสอน</th>
-                    <th class="text-center" style=" font-size: 1em;" rowspan="2">อาจารย์</th>
-                    <th class="text-center" style=" font-size: 1em;" colspan="2">ตำแหน่งทางวิชาการ</th>
-                    <th class="text-center" style=" font-size: 1em;" colspan="2">สถานะ</th>
-                    <th class="text-center" style=" font-size: 1em;" rowspan="2">รวม</th>
-                    <th class="text-center" style=" font-size: 1em;" rowspan="2">ปี</th>
-
+                    <th class="text-center" style=" font-size: 1em; width:3vw;" rowspan="2">ที่</th>
+                    <th class="text-center" style=" font-size: 1em; width:15vw;" rowspan="2">ชื่อ-สกุล</th>
+                    <th class="text-center" style=" font-size: 1em; width:6vw;" rowspan="2">วันที่ขอรับการประเมิน</th>
+                    <th class="text-center" style=" font-size: 1em; width:6vw;" rowspan="2">วันที่มติกรรมการประจำคณะ</th>
+                    <th class="text-center" style=" font-size: 1em; width:6vw;" rowspan="2">วันที่เริ่มประเมิน</th>
+                    <th class="text-center" style=" font-size: 1em; width:6vw;" rowspan="2">วันที่ครบกำหนดประเมิน</th>
+                    <th class="text-center" style=" font-size: 1em; width:10vw;" rowspan="2">ตำแหน่งที่ขอรับการพิจารณา</th>
+                    <th class="text-center" style=" font-size: 1em; width:15vw;" rowspan="2">สถานะดำเนินการ</th>
                 </tr>
-                <tr>
-                    <th class="text-center" style=" font-size: 1em;">ปริญญาโท</th>
-                    <th class="text-center" style=" font-size: 1em;">ปริญญาเอก</th>
-                    <th class="text-center" style=" font-size: 1em;">ผศ.</th>
-                    <th class="text-center" style=" font-size: 1em;">รศ.</th>
-                    <th class="text-center" style=" font-size: 1em;">ปฏิบัติงาน</th>
-                    <th class="text-center" style=" font-size: 1em;">ลาศึกษา</th>
-                </tr>
+                
+                    
+                    
+                    
+                    
+        
+                
                
 
                 <!-- <tr>
@@ -54,16 +51,15 @@
 
             </thead>
             <tbody>
-                <tr v-for="datas,i in data" :key="i">
+                <!-- <tr v-for="datas,i in data" :key="i">
                     <td>{{ datas.faculty }}</td>
                     <td>{{ datas.master }}</td>
-                </tr>
+                </tr> -->
             </tbody>
         </template>
     </v-simple-table>
-</div>
     <!-- <pre>{{data}}</pre> -->
-    <pre>{{year}}</pre>
+    <!-- <pre>{{year}}</pre> -->
 </div>
 </template>
 
@@ -107,13 +103,11 @@ export default {
     height: 3vh;
 }
 
-tr th {
+thead tr th  {
     text-align: center;
-    background: #DEEBF7;
-    border: 2px solid white;
+    border: 1px solid black;
 }
-.HTable{
-    margin: 10px;
-    padding: 10px;
-}
+
+
+
 </style>

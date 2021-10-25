@@ -6,7 +6,8 @@
             <h1 class="font-weight-black" style=" font-size: 1.2em;">ข้อมูลอัตรากำลังบุคลากรสายบริการ ประจำปีงบประมาณ</h1>
         </div>
     </div>
-    <v-simple-table class="grey">
+    <div class="HTable">
+    <v-simple-table>
         <template v-slot:default>
             <thead>
                 <tr>
@@ -15,9 +16,9 @@
                     <th class="text-center" style=" font-size: 1em;" colspan="4">ตำเเหน่งทางวิชาการ</th>
                     <th class="text-center" style=" font-size: 1em;" colspan="2">สถานะ</th>
                     <th class="text-center" style=" font-size: 1em;" colspan="1">รวม</th>
-                    
 
                 </tr>
+                <tr>
                     <th class="text-center" style=" font-size: 1em;">ปริญญาตรี</th>
                     <th class="text-center" style=" font-size: 1em;">ปริญญาโท</th>
                     <th class="text-center" style=" font-size: 1em;">ชำนาญการ</th>
@@ -26,30 +27,8 @@
                     <th class="text-center" style=" font-size: 1em;">เชี่ยวชาญพิเศษ</th>
                     <th class="text-center" style=" font-size: 1em;">ปฏิบัติงาน</th>
                     <th class="text-center" style=" font-size: 1em;">ลาศึกษา</th>
-        
-                
-               
-
-                <!-- <tr>
-                                                    <th rowspan="2">สาขาวิชา</th>
-                                                    <th colspan="2">ระดับการศึกษา</th>
-                                                    <th rowspan="2">ผู้ช่วยสอน</th>
-                                                    <th rowspan="2">อาจารย์</th>
-                                                    <th colspan="2">ตำแหน่งทางวิชาการ</th>
-                                                    <th colspan="2">สถานะ</th>
-                                                    <th rowspan="2">รวม</th>
-                                                    <th rowspan="2">ปี</th>
-                                                    <th rowspan="2">Update</th>
-                                                    <th rowspan="2">Delete</th>
-                                                </tr>
-                                                <tr>
-                                                    <th>ปริญญาโท</th>
-                                                    <th>ปริญญาเอก</th>
-                                                    <th>ผศ.</th>
-                                                    <th>รศ.</th>
-                                                    <th>ปฏิบัติงาน</th>
-                                                    <th>ลาศึกษา</th>
-                                                </tr> -->
+                    <th class="text-center" style=" font-size: 1em;"></th>
+                </tr>
 
             </thead>
             <tbody>
@@ -60,41 +39,45 @@
             </tbody>
         </template>
     </v-simple-table>
-    <!-- <pre>{{data}}</pre> -->
+    </div>
+    <pre>{{data}}</pre>
     <pre>{{year}}</pre>
 </div>
 </template>
 
 <script>
-import { end_point , academicpower } from '../../config/config';
-const url  = end_point + academicpower
+import {
+    end_point,
+    academicpower
+} from '../../config/config';
+const url = end_point + academicpower
 import Swal from 'sweetalert2'
 export default {
-    data(){
+    data() {
         return {
             data: {},
             year: {
-                year:""
+                year: ""
             }
 
         }
-    },  
-    async mounted(){
+    },
+    async mounted() {
         try {
             const response = await fetch(
                 url,
                 console.log(fetch)
-                )
-                const content = await response.json()
-                console.log(content)
-                this.data = content
-                this.year = content
+            )
+            const content = await response.json()
+            console.log(content)
+            this.data = content
+            this.year = content
 
-        }catch (error){
+        } catch (error) {
 
         }
     }
-    
+
 }
 </script>
 
@@ -107,5 +90,12 @@ export default {
 
 tr th {
     text-align: center;
+    background: #DEEBF7;
+    border: 2px solid white;
+
+}
+.HTable{
+    margin: 10px;
+    padding: 10px;
 }
 </style>

@@ -6,7 +6,7 @@
             <h1 class="font-weight-black" style=" font-size: 1.2em;">ข้อมูลการใช้งบประมาณพัฒนาศักยภาพบุคลากรสายบริการ</h1>
         </div>
     </div>
-    <v-simple-table >
+    <v-simple-table>
         <template v-slot:default>
             <thead>
                 <tr>
@@ -15,38 +15,7 @@
                     <th class="text-center" style=" font-size: 1em;" rowspan="2">ใช้งบประมาณทั้งสิ้น</th>
                     <th class="text-center" style=" font-size: 1em;" rowspan="2">คงเหลือ</th>
 
-                    
-
                 </tr>
-                
-                    
-                    
-                    
-                    
-        
-                
-               
-
-                <!-- <tr>
-                                                    <th rowspan="2">สาขาวิชา</th>
-                                                    <th colspan="2">ระดับการศึกษา</th>
-                                                    <th rowspan="2">ผู้ช่วยสอน</th>
-                                                    <th rowspan="2">อาจารย์</th>
-                                                    <th colspan="2">ตำแหน่งทางวิชาการ</th>
-                                                    <th colspan="2">สถานะ</th>
-                                                    <th rowspan="2">รวม</th>
-                                                    <th rowspan="2">ปี</th>
-                                                    <th rowspan="2">Update</th>
-                                                    <th rowspan="2">Delete</th>
-                                                </tr>
-                                                <tr>
-                                                    <th>ปริญญาโท</th>
-                                                    <th>ปริญญาเอก</th>
-                                                    <th>ผศ.</th>
-                                                    <th>รศ.</th>
-                                                    <th>ปฏิบัติงาน</th>
-                                                    <th>ลาศึกษา</th>
-                                                </tr> -->
 
             </thead>
             <tbody>
@@ -63,35 +32,38 @@
 </template>
 
 <script>
-import { end_point , academicpower } from '../../config/config';
-const url  = end_point + academicpower
+import {
+    end_point,
+    academicpower
+} from '../../config/config';
+const url = end_point + academicpower
 import Swal from 'sweetalert2'
 export default {
-    data(){
+    data() {
         return {
             data: {},
             year: {
-                year:""
+                year: ""
             }
 
         }
-    },  
-    async mounted(){
+    },
+    async mounted() {
         try {
             const response = await fetch(
                 url,
                 console.log(fetch)
-                )
-                const content = await response.json()
-                console.log(content)
-                this.data = content
-                this.year = content
+            )
+            const content = await response.json()
+            console.log(content)
+            this.data = content
+            this.year = content
 
-        }catch (error){
+        } catch (error) {
 
         }
     }
-    
+
 }
 </script>
 
@@ -102,11 +74,8 @@ export default {
     height: 3vh;
 }
 
-thead tr th  {
+thead tr th {
     text-align: center;
     border: 1px solid black;
 }
-
-
-
 </style>
