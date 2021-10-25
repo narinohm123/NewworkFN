@@ -6,6 +6,7 @@
             <h1 class="font-weight-black" style=" font-size: 1.2em;">ข้อมูลการใช้งบประมาณพัฒนาศักยภาพบุคลากรสายบริการ</h1>
         </div>
     </div>
+<div class="HTable">
     <v-simple-table>
         <template v-slot:default>
             <thead>
@@ -26,6 +27,7 @@
             </tbody>
         </template>
     </v-simple-table>
+</div>
     <!-- <pre>{{data}}</pre> -->
     <!-- <pre>{{year}}</pre> -->
 </div>
@@ -77,5 +79,9 @@ export default {
 thead tr th {
     text-align: center;
     border: 1px solid black;
+}
+.HTable{
+    margin: 10px;
+    padding: 10px;
 }
 </style>

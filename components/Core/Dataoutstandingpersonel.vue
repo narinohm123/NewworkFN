@@ -21,7 +21,8 @@
 
                     </thead>
 
-                    <tbody>
+                    <tbody style="background:#F2F2F2; border: 2px solid white;">
+                        <td>56456</td>
                         <!-- <tr v-for="datas,i in data" :key="i">
                     <td>{{ datas.faculty }}</td>
                     <td>{{ datas.master }}</td>
@@ -41,7 +42,8 @@
                         </tr>
                     </thead>
 
-                    <tbody>
+                    <tbody style="background:#F2F2F2; border: 2px solid white;">
+                        <td>zxcvzcv</td>
                         <!-- <tr v-for="datas,i in data" :key="i">
                     <td>{{ datas.faculty }}</td>
                     <td>{{ datas.master }}</td>
@@ -101,11 +103,14 @@ export default {
 
 thead tr th {
     text-align: center;
-    border: 1px solid black;
+    background: #DEEBF7;
+    border: 2px solid white;
 }
 .Table{
     display: flex; 
     justify-content: space-around;
+    margin: 10px;
+    padding: 10px;
     
 }
 </style>

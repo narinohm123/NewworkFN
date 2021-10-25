@@ -3,9 +3,11 @@
     <div>
         <div style="height: 1.5vh;"></div>
         <div class="Hed">
-            <h1 class="font-weight-black" style=" font-size: 1.2em;">สถานะการดำเนินการประเมินผลการสอนและเอกสารที่ใช้ประเมินผลการสอน</h1>
+            <h1 class="font-weight-black" style=" font-size: 1.2em;"></h1>
         </div>
     </div>
+
+<div class="HTable">
     <v-simple-table>
         <template v-slot:default>
             <thead>
@@ -14,32 +16,32 @@
 
                 </tr>
                 <tr>
-                    <th style=" font-size: 1em; width:20vw;">ชื่อ-สกุล</th>
-                    <th style=" font-size: 1em;"></th>
+                    <th style=" font-size: 1em; width:20vw; background:#F2F2F2; border: 2px solid white;">ชื่อ-สกุล</th>
+                    <td style=" font-size: 1em; background:#F2F2F2; border: 2px solid white;">gg</td>
                 </tr>
                 <tr>
-                    <th style=" font-size: 1em; width:20vw;">ตำแหน่ง</th>
-                    <th style=" font-size: 1em;"></th>
+                    <th style=" font-size: 1em; width:20vw; background:#F2F2F2; border: 2px solid white;">ตำแหน่ง</th>
+                    <td style=" font-size: 1em; background:#F2F2F2; border: 2px solid white;"></td>
                 </tr>
                 <tr>
-                    <th style=" font-size: 1em; width:20vw;">สาขาตำแหน่งวิชาการ</th>
-                    <th style=" font-size: 1em;"></th>
+                    <th style=" font-size: 1em; width:20vw; background:#F2F2F2; border: 2px solid white;">สาขาตำแหน่งวิชาการ</th>
+                    <td style=" font-size: 1em; background:#F2F2F2; border: 2px solid white;"></td>
                 </tr>
                 <tr>
-                    <th style=" font-size: 1em; width:20vw;">วันที่ยื่นขอกำหนดตำแหน่ง</th>
-                    <th style=" font-size: 1em;"></th>
+                    <th style=" font-size: 1em; width:20vw; background:#F2F2F2; border: 2px solid white;">วันที่ยื่นขอกำหนดตำแหน่ง</th>
+                    <td style=" font-size: 1em; background:#F2F2F2; border: 2px solid white;"></td>
                 </tr>
                 <tr>
-                    <th style=" font-size: 1em; width:20vw;">วันที่อนุมัติตำแหน่ง</th>
-                    <th style=" font-size: 1em;"></th>
+                    <th style=" font-size: 1em; width:20vw; background:#F2F2F2; border: 2px solid white;">วันที่อนุมัติตำแหน่ง</th>
+                    <td style=" font-size: 1em; background:#F2F2F2; border: 2px solid white;"></td>
                 </tr>
                 <tr>
-                    <th style=" font-size: 1em; width:20vw;">ผลงานที่ยื่น</th>
-                    <th style=" font-size: 1em;"></th>
+                    <th style=" font-size: 1em; width:20vw; background:#F2F2F2; border: 2px solid white;">ผลงานที่ยื่น</th>
+                    <td style=" font-size: 1em; background:#F2F2F2; border: 2px solid white;"></td>
                 </tr>
                 <tr>
-                    <th style=" font-size: 1em; width:20vw;">การเผยแพร่</th>
-                    <th style=" font-size: 1em;"></th>
+                    <th style=" font-size: 1em; width:20vw; background:#F2F2F2; border: 2px solid white;">การเผยแพร่</th>
+                    <td style=" font-size: 1em; background:#F2F2F2; border: 2px solid white;"></td>
                 </tr>
                 <th></th>
 
@@ -52,6 +54,7 @@
             </tbody>
         </template>
     </v-simple-table>
+</div>
     <!-- <pre>{{data}}</pre> -->
     <!-- <pre>{{year}}</pre> -->
 </div>
@@ -102,6 +105,12 @@ export default {
 
 thead tr th {
     text-align: center;
-    border: 1px solid black;
+    background: #DEEBF7;
+    border: 2px solid white;
+}
+
+.HTable {
+    margin: 10px;
+    padding: 10px;
 }
 </style>

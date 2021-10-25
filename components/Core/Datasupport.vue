@@ -31,10 +31,10 @@
                 </tr>
 
             </thead>
-            <tbody>
+            <tbody style="background:#F2F2F2; border: 2px solid white;">
                 <tr v-for="datas,i in data" :key="i">
                     <td>{{ datas.faculty }}</td>
-                    <td>{{ datas.master }}</td>
+                    <td class="text-center">{{ datas.master }}</td>
                 </tr>
             </tbody>
         </template>
@@ -88,7 +88,7 @@ export default {
     height: 3vh;
 }
 
-tr th {
+thead tr th {
     text-align: center;
     background: #DEEBF7;
     border: 2px solid white;
@@ -97,5 +97,7 @@ tr th {
 .HTable{
     margin: 10px;
     padding: 10px;
+    
 }
+
 </style>

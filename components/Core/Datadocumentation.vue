@@ -6,51 +6,33 @@
             <h1 class="font-weight-black" style=" font-size: 1.2em;">ข้อมูลการประเมินผลการสอนและเอกสารที่ใช้ประเมินผลการสอน</h1>
         </div>
     </div>
-    <v-simple-table>
-        <template v-slot:default>
-            <thead>
-                <tr>
-                    <th class="text-center" style=" font-size: 1em; width:10vw;" rowspan="2">ชื่อ-สกุล</th>
-                    <th class="text-center" style=" font-size: 1em; width:10vw;" rowspan="2">ชื่อเรื่อง</th>
-                    <th class="text-center" style=" font-size: 1em; width:10vw;" rowspan="2">สังกัดสาขาวิชา</th>
-                    <th class="text-center" style=" font-size: 1em; width:5vw;" rowspan="2">วันที่รับการประเมิน</th>
-                    <th class="text-center" style=" font-size: 1em; width:5vw;" rowspan="2">วันที่ประเมิน</th>
-                    <th class="text-center" style=" font-size: 1em; width:6vw;" rowspan="2">วันที่หมดอายุผลประเมิน</th>
-                    <th class="text-center" style=" font-size: 1em; width:5vw;" rowspan="2">ระดับผลการประเมินผลการสอน</th>
-                    <th class="text-center" style=" font-size: 1em; width:5vw;" rowspan="2">ระดับผลการประเมินเอกสาร</th>
-                    <th class="text-center" style=" font-size: 1em; width:2vw;" rowspan="2">ประเมินครั้งที่</th>
-                </tr>
+    <div class="HTable">
+        <v-simple-table>
+            <template v-slot:default>
+                <thead>
+                    <tr>
+                        <th class="text-center" style=" font-size: 1em; width:10vw;">ชื่อ-สกุล</th>
+                        <th class="text-center" style=" font-size: 1em; width:10vw;">ชื่อเรื่อง</th>
+                        <th class="text-center" style=" font-size: 1em; width:10vw;">สังกัดสาขาวิชา</th>
+                        <th class="text-center" style=" font-size: 1em; width:5vw;">วันที่รับการประเมิน</th>
+                        <th class="text-center" style=" font-size: 1em; width:5vw;">วันที่ประเมิน</th>
+                        <th class="text-center" style=" font-size: 1em; width:5vw;">วันที่หมดอายุผลประเมิน</th>
+                        <th class="text-center" style=" font-size: 1em; width:6vw;">ระดับผลการประเมินผลการสอน</th>
+                        <th class="text-center" style=" font-size: 1em; width:6vw;">ระดับผลการประเมินเอกสาร</th>
+                        <th class="text-center" style=" font-size: 1em; width:3vw;">ประเมินครั้งที่</th>
+                    </tr>
 
-                <!-- <tr>
-                                                    <th rowspan="2">สาขาวิชา</th>
-                                                    <th colspan="2">ระดับการศึกษา</th>
-                                                    <th rowspan="2">ผู้ช่วยสอน</th>
-                                                    <th rowspan="2">อาจารย์</th>
-                                                    <th colspan="2">ตำแหน่งทางวิชาการ</th>
-                                                    <th colspan="2">สถานะ</th>
-                                                    <th rowspan="2">รวม</th>
-                                                    <th rowspan="2">ปี</th>
-                                                    <th rowspan="2">Update</th>
-                                                    <th rowspan="2">Delete</th>
-                                                </tr>
-                                                <tr>
-                                                    <th>ปริญญาโท</th>
-                                                    <th>ปริญญาเอก</th>
-                                                    <th>ผศ.</th>
-                                                    <th>รศ.</th>
-                                                    <th>ปฏิบัติงาน</th>
-                                                    <th>ลาศึกษา</th>
-                                                </tr> -->
-
-            </thead>
-            <tbody>
-                <!-- <tr v-for="datas,i in data" :key="i">
+                </thead>
+                <tbody style="background:#F2F2F2; border: 2px solid white;">
+                    <td>4</td>
+                    <!-- <tr v-for="datas,i in data" :key="i">
                     <td>{{ datas.faculty }}</td>
                     <td>{{ datas.master }}</td>
                 </tr> -->
-            </tbody>
-        </template>
-    </v-simple-table>
+                </tbody>
+            </template>
+        </v-simple-table>
+    </div>
     <!-- <pre>{{data}}</pre> -->
     <!-- <pre>{{year}}</pre> -->
 </div>
@@ -101,6 +83,12 @@ export default {
 
 thead tr th {
     text-align: center;
-    border: 1px solid black;
+    background: #DEEBF7;
+    border: 2px solid white;
+}
+
+.HTable {
+    margin: 10px;
+    padding: 10px;
 }
 </style>

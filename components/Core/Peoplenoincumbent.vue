@@ -1,26 +1,13 @@
 <template>
 <div>
-    <div>
-        <div style="height: 1.5vh;"></div>
-        <div class="Hed">
-            <h1 class="font-weight-black" style=" font-size: 1.2em;">ข้อมูลการใช้งบประมาณพัฒนาศักยภาพบุคลากร</h1>
-        </div>
-    </div>
 <div class="HTable">
     <v-simple-table>
         <template v-slot:default>
             <thead>
-                <tr>
-                    <th class="text-center" style=" font-size: 1em;" rowspan="2">ปีงบประมาณ</th>
-                    <th class="text-center" style=" font-size: 1em;" rowspan="2">งบประมาณตั่งต้น</th>
-                    <th class="text-center" style=" font-size: 1em;" rowspan="2">ใช้งบประมาณทั้งสิ้น</th>
-                    <th class="text-center" style=" font-size: 1em;" rowspan="2">คงเหลือ</th>
-
-                </tr>
+                
 
             </thead>
-            <tbody style="background:#F2F2F2; border: 2px solid white;">
-                <td>oihj</td>
+            <tbody>
                 <!-- <tr v-for="datas,i in data" :key="i">
                     <td>{{ datas.faculty }}</td>
                     <td>{{ datas.master }}</td>
@@ -82,7 +69,8 @@ thead tr th {
     background: #DEEBF7;
     border: 2px solid white;
 }
-.HTable{
+
+.HTable {
     margin: 10px;
     padding: 10px;
 }
