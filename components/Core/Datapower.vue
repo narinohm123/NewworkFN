@@ -55,9 +55,9 @@ export default {
     data() {
         return {
             data: {},
-            year: {
-                year: ""
-            }
+            // year: {
+            //     year: ""
+            // }
 
         }
     },
@@ -70,7 +70,7 @@ export default {
             const content = await response.json()
             console.log(content)
             this.data = content
-            this.year = content
+            // this.year = content
 
         } catch (error) {
 

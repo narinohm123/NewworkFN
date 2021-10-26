@@ -33,16 +33,16 @@
 
                 </thead>
                 <tbody style="background:#F2F2F2; border: 2px solid white;">
-                    <td>xdvxv</td>
-                    <!-- <tr v-for="datas,i in data" :key="i">
+                    
+                    <tr v-for="datas,i in data" :key="i">
                     <td>{{ datas.faculty }}</td>
                     <td>{{ datas.master }}</td>
-                </tr> -->
+                </tr>
                 </tbody>
             </template>
         </v-simple-table>
     </div>
-        <!-- <pre>{{data}}</pre> -->
+        <pre>{{data}}</pre>
         <!-- <pre>{{year}}</pre> -->
     </div>
 </template>
@@ -50,17 +50,19 @@
 <script>
 import {
     end_point,
-    academicpower
+    leavetime,
+    studyleave
 } from '../../config/config';
-const url = end_point + academicpower
+const url = end_point + leavetime
+const urls = end_point + studyleave
 import Swal from 'sweetalert2'
 export default {
     data() {
         return {
             data: {},
-            year: {
-                year: ""
-            }
+            // year: {
+            //     year: ""
+            // }
 
         }
     },

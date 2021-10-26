@@ -24,16 +24,16 @@
 
                 </thead>
                 <tbody style="background:#F2F2F2; border: 2px solid white;">
-                    <td>4</td>
-                    <!-- <tr v-for="datas,i in data" :key="i">
-                    <td>{{ datas.faculty }}</td>
-                    <td>{{ datas.master }}</td>
-                </tr> -->
+
+                    <tr v-for="datas,i in data" :key="i">
+                        <td>{{ datas.faculty }}</td>
+                        <td>{{ datas.master }}</td>
+                    </tr>
                 </tbody>
             </template>
         </v-simple-table>
     </div>
-    <!-- <pre>{{data}}</pre> -->
+    <pre>{{data}}</pre>
     <!-- <pre>{{year}}</pre> -->
 </div>
 </template>
@@ -41,17 +41,17 @@
 <script>
 import {
     end_point,
-    academicpower
+    documents
 } from '../../config/config';
-const url = end_point + academicpower
+const url = end_point + documents
 import Swal from 'sweetalert2'
 export default {
     data() {
         return {
             data: {},
-            year: {
-                year: ""
-            }
+            // year: {
+            //     year: ""
+            // }
 
         }
     },
@@ -64,7 +64,7 @@ export default {
             const content = await response.json()
             console.log(content)
             this.data = content
-            this.year = content
+            // this.year = content
 
         } catch (error) {
 

@@ -7,38 +7,38 @@
         </div>
     </div>
     <div class="HTable">
-    <v-simple-table>
-        <template v-slot:default>
-            <thead>
-                <tr>
-                    <th class="text-center font-weight-black" style=" font-size: 1em;" rowspan="2">สังกัด</th>
-                    <th class="text-center" style=" font-size: 1em;" rowspan="2">จำนวนเต็ม</th>
-                    <th class="text-center" style=" font-size: 1em;" colspan="2">อบรม</th>
-                    <th class="text-center" style=" font-size: 1em;" colspan="2">สัมมนา</th>
-                    <th class="text-center" style=" font-size: 1em;" colspan="2">ดูงาน</th>
+        <v-simple-table>
+            <template v-slot:default>
+                <thead>
+                    <tr>
+                        <th class="text-center font-weight-black" style=" font-size: 1em;" rowspan="2">สังกัด</th>
+                        <th class="text-center" style=" font-size: 1em;" rowspan="2">จำนวนเต็ม</th>
+                        <th class="text-center" style=" font-size: 1em;" colspan="2">อบรม</th>
+                        <th class="text-center" style=" font-size: 1em;" colspan="2">สัมมนา</th>
+                        <th class="text-center" style=" font-size: 1em;" colspan="2">ดูงาน</th>
 
-                </tr>
-                <tr>
-                    <th class="text-center" style=" font-size: 1em;">คน</th>
-                    <th class="text-center" style=" font-size: 1em;">ครั้ง</th>
-                    <th class="text-center" style=" font-size: 1em;">คน</th>
-                    <th class="text-center" style=" font-size: 1em;">ครั้ง</th>
-                    <th class="text-center" style=" font-size: 1em;">คน</th>
-                    <th class="text-center" style=" font-size: 1em;">ครั้ง</th>
-                </tr>
+                    </tr>
+                    <tr>
+                        <th class="text-center" style=" font-size: 1em;">คน</th>
+                        <th class="text-center" style=" font-size: 1em;">ครั้ง</th>
+                        <th class="text-center" style=" font-size: 1em;">คน</th>
+                        <th class="text-center" style=" font-size: 1em;">ครั้ง</th>
+                        <th class="text-center" style=" font-size: 1em;">คน</th>
+                        <th class="text-center" style=" font-size: 1em;">ครั้ง</th>
+                    </tr>
 
-            </thead>
-            <tbody style="background:#F2F2F2; border: 2px solid white;">
-                <td>df</td>
-                <!-- <tr v-for="datas,i in data" :key="i">
-                    <td>{{ datas.faculty }}</td>
-                    <td>{{ datas.master }}</td>
-                </tr> -->
-            </tbody>
-        </template>
-    </v-simple-table>
+                </thead>
+                <tbody style="background:#F2F2F2; border: 2px solid white;">
+                        
+                    <tr v-for="datas,i in data" :key="i">
+                        <td>{{ datas.faculty }}</td>
+                        <td>{{ datas.total }}</td>
+                    </tr>
+                </tbody>
+            </template>
+        </v-simple-table>
     </div>
-    <!-- <pre>{{data}}</pre> -->
+    <pre>{{data}}</pre>
     <!-- <pre>{{year}}</pre> -->
 </div>
 </template>
@@ -46,17 +46,17 @@
 <script>
 import {
     end_point,
-    academicpower
+    events
 } from '../../config/config';
-const url = end_point + academicpower
+const url = end_point + events
 import Swal from 'sweetalert2'
 export default {
     data() {
         return {
             data: {},
-            year: {
-                year: ""
-            }
+            // year: {
+            //     year: ""
+            // }
 
         }
     },
@@ -69,7 +69,7 @@ export default {
             const content = await response.json()
             console.log(content)
             this.data = content
-            this.year = content
+            // this.year = content
 
         } catch (error) {
 
@@ -91,7 +91,8 @@ tr th {
     background: #DEEBF7;
     border: 2px solid white;
 }
-.HTable{
+
+.HTable {
     margin: 10px;
     padding: 10px;
 }

@@ -48,17 +48,17 @@
 <script>
 import {
     end_point,
-    academicpower
+    serviceManpower
 } from '../../config/config';
-const url = end_point + academicpower
+const url = end_point + serviceManpower
 import Swal from 'sweetalert2'
 export default {
     data() {
         return {
             data: {},
-            year: {
-                year: ""
-            }
+            // year: {
+            //     year: ""
+            // }
 
         }
     },
@@ -71,7 +71,7 @@ export default {
             const content = await response.json()
             console.log(content)
             this.data = content
-            this.year = content
+            // this.year = content
 
         } catch (error) {
 
