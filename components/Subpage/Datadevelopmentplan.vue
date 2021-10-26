@@ -1,14 +1,13 @@
 <template>
 <div>
-    
-        <!-- <embed src="/assets/Test.pdf" width="100%" height="100%" /> -->
-        <div>
-            <embed src="assets/Test.pdf" width="1381px" height="720px" />
-        </div>
-        <!-- <iframe src="assets/Test.pdf"  width="100%" height="100%"></iframes> -->
-        <!-- <pre>{{data}}</pre> -->
 
-    
+    <!-- <embed src="/assets/Test.pdf" width="100%" height="100%" /> -->
+    <div>
+        <embed src="assets/Test.pdf" width="1381px" height="720px" />
+    </div>
+    <!-- <iframe src="assets/Test.pdf"  width="100%" height="100%"></iframes> -->
+    <!-- <pre>{{data}}</pre> -->
+
 </div>
 </template>
 
