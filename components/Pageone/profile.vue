@@ -186,7 +186,7 @@
             </div>
         </div>
     </div>
-    <!-- <pre> {{profile}} </pre> -->
+    <pre> {{profile}} </pre>
 </div>
 </template>
 

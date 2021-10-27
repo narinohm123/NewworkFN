@@ -28,19 +28,21 @@
     </div>
     <v-sheet class="p-1 m-1 w-3/4 h-full" color="white" elevation="5" height="76vh" width="74.5vw">
         <div class=" p-0 m-0 w-3/4 h-full  border-3 line rounded " style="width:74vw; height:75vh;">
-            <WebViewer initialDoc="https://pdftron.s3.amazonaws.com/downloads/pl/demo-annotated.pdf"/>
+            <Core-WebViewer :path="`${publicPath}webviewer`" url="https://pdftron.s3.amazonaws.com/downloads/pl/demo-annotated.pdf"/>
         </div>
     </v-sheet>
 </div>
 </template>
 
 <script>
-import Webviewer from '.components/WebViewer.vue'
+
 
 export default {
-    name: 'App',
-    components: {
-        Webviewer
+    name: '',
+    data (){
+        return {
+            publicPath: process.env.BASE_URL
+        }
     }
 
 }

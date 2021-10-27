@@ -31,7 +31,7 @@
     </div>
     <v-sheet class="p-1 m-1 w-3/4 h-full" color="white" elevation="5" height="76vh" width="74.5vw">
         <div class=" p-0 m-0 w-3/4 h-full  border-3 line rounded " style="width:74vw; height:75vh;">
-            <Subpage-Dataperformancereport/>
+            <Core-WebViewerreport :path="`${publicPath}webviewerreport`" url="https://pdftron.s3.amazonaws.com/downloads/pl/demo-annotated.pdf"/>
         </div>
     </v-sheet>
 </div>
@@ -39,6 +39,12 @@
 
 <script>
 export default {
+    name: '',
+    data (){
+        return {
+            publicPath: process.env.BASE_URL
+        }
+    }
 
 }
 </script>
@@ -56,10 +62,6 @@ export default {
     justify-content: center;
 }
 
-.Data {
-    display: flex;
-    justify-content: center;
-}
 
 .Hdata {
     margin: 5px;
