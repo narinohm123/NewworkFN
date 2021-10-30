@@ -10,7 +10,8 @@
 
                     </div>
                     
-                    <div>
+                    <div style="height:3vh;"></div>
+                    <div style="display: flex; justify-content: space-around;">
                         <v-menu offset-y>
                             <template v-slot:activator="{ on, attrs }">
                                 <v-btn v-bind="attrs" v-on="on">

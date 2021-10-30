@@ -26,7 +26,7 @@ export default {
 <style>
      #webviewer{
         align-items: center;
-        height: 75vh;
-        width: 60vw;
+        height: 74.5vh;
+        width: 73.5vw;
     }
 </style>

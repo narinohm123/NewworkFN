@@ -9,7 +9,8 @@
                             รายงานผลการดำเนินงาน</v-sheet>
 
                     </div>
-                    <div>
+                    <div style="height:3vh;"></div>
+                    <div style="display: flex; justify-content: space-around;">
                         <div class="Hto">
                             <v-menu offset-y>
                                 <template v-slot:activator="{ on, attrs }">
@@ -25,7 +26,7 @@
                             </v-menu>
                         </div>
                     </div>
-                    
+
                     <div>
 
                     </div>
@@ -37,18 +38,18 @@
     </div>
     <v-sheet class="p-1 m-1 w-3/4 h-full" color="white" elevation="5" height="76vh" width="74.5vw">
         <div class=" p-0 m-0 w-3/4 h-full  border-3 line rounded " style="width:74vw; height:75vh;">
-             <Core-WebViewerreport :path="`${publicPath}webviewer`" url="https://pdftron.s3.amazonaws.com/downloads/pl/demo-annotated.pdf" />
-            
+            <div style="display: flex; justify-content: center;">
+                <Core-WebViewerreport :path="`${publicPath}webviewer`" url="https://pdftron.s3.amazonaws.com/downloads/pl/demo-annotated.pdf" />
+            </div>
         </div>
     </v-sheet>
 </div>
 </template>
 
 <script>
-
 export default {
     name: '',
-    data (){
+    data() {
         return {
             publicPath: process.env.BASE_URL,
             academicdialog: false
@@ -89,7 +90,6 @@ export default {
     display: flex;
     justify-content: center;
 }
-
 
 .Hdata {
     margin: 5px;

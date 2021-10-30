@@ -10,7 +10,8 @@
                         </v-sheet>
 
                     </div>
-                    <div>
+                    <div style="height:2vh;"></div>
+                    <div style="display: flex; justify-content: space-around;">
                         <div class="Hto">
                             
                                     <v-btn @click="ActionstatusState = 0">
@@ -124,7 +125,7 @@ export default {
 .Hto {
     display: flex;
     justify-content: center;
-    height: 10vh;
+    height: 5vh;
 }
 
 .Data {

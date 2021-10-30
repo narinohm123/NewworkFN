@@ -5,15 +5,17 @@
             <div class="p-0 m-0 w-3/4 h-full border-5 line rounded " style="height:75vh; width:22.5vw; ">
                 <div class="Herd">
                     <div class="Data">
+                        
                         <v-sheet class="Hdata" color="#AE78D6" elevation="4" height="50" rounded width="280" style='font-size: 20px; '>
                             ข้อมูลอัตรากำลัง
                         </v-sheet>
                     </div>
-                    <div>
+                    <div style="height:3vh;"></div>
+                    <div style="display: flex; justify-content: space-around;">
                         <v-menu offset-y>
                             <template v-slot:activator="{ on, attrs }">
                                 <v-btn v-bind="attrs" v-on="on">
-                                    ข้อมูลบุคลากร
+                                    บุคลากรสายวิชาการ
                                 </v-btn>
                             </template>
                             <v-list>
@@ -37,7 +39,7 @@
                         </v-menu>
                     </div>
                     <div>
-
+                        
                     </div>
 
                 </div>

@@ -10,7 +10,8 @@
                         </v-sheet>
 
                     </div>
-                    <div>
+                    <div style="height:3vh;"></div>
+                    <div style="display: flex; justify-content: space-around;">
                         <div class="Hto">
                             <v-btn @click="IncumbentState = 0">
                                 อนุมัติตำแหน่งทางวิชาการ
@@ -119,7 +120,7 @@ export default {
 .Hto {
     display: flex;
     justify-content: center;
-    height: 10vh;
+    height: 5vh;
 }
 
 .Data {

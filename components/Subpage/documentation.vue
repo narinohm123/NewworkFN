@@ -9,7 +9,8 @@
                             เอกสารประกอบการสอน / คำสอน</v-sheet>
 
                     </div>
-                    <div>
+                    <div style="height:3vh;"></div>
+                    <div style="display: flex; justify-content: space-around;">
                         <div class="Hto">
                             <v-btn @click="DatadocumentationpeopleState = 0">
                                 เอกสารประกอบการสอน / คำสอน
