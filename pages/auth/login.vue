@@ -5,42 +5,41 @@
         <v-dialog v-model="dialog" scrollable fullscreen persistent :overlay="false" max-width="500px" transition="dialog-transition">
 
             <div class="col-md-6 d-none d-md-flex " style="background-color:#F1F2F1;position: relative; display: flex; flex-direction: column; justify-content: center;">
-                <div class="d-flex align-items-center " >
-                    <div >
-                        <div  style=" width: 135%; ">
+                <div class="d-flex align-items-center ">
+                    <div>
+                        <div style=" width: 135%; ">
                             <img src="@/assets/logo.png" class="Imgict">
                         </div>
                     </div>
                     <!-- <div class="d-flex flex-column "> -->
-                        <div class="d-flex flex-column " style="position: relative; left:-10px; top:100px; width: 50vw;">
-                            <p class="Hedone">ระบบฐานข้อมูลบุคลากร</p>
-                            <p class="Hedtwo">เพื่อสนับสนุนการวางแผนพัฒนาบุคลากร</p>
-                            <p class="Hedthee">คณะเทคโนโลยีสารสนเทศและการสื่อสาร มหาวิทยาลัยพะเยา</p>
-                        </div>
+                    <div class="d-flex flex-column " style="position: relative; left:-10px; top:100px; width: 50vw;">
+                        <p class="Hedone">ระบบฐานข้อมูลบุคลากร</p>
+                        <p class="Hedtwo">เพื่อสนับสนุนการวางแผนพัฒนาบุคลากร</p>
+                        <p class="Hedthee">คณะเทคโนโลยีสารสนเทศและการสื่อสาร มหาวิทยาลัยพะเยา</p>
+                    </div>
                     <!-- </div> -->
                 </div>
 
             </div>
             <div class="w-full xl:w-1/2 p-8" style="background: white; display: flex; flex-direction: column; justify-content: center;">
 
-              
-                    <h1 class=" text-2xl font-bold" style="display: flex; justify-content: center;">Sign in to your account</h1>
-                        <v-form >
+                <h1 class=" text-2xl font-bold" style="display: flex; justify-content: center;">Sign in to your account</h1>
+                <v-form>
                     <div class="mb-1 mt-1">
                         <div class="bg-white shadow-md rounded px-10 pt-8 pb-10 mb-6 flex flex-col">
-                                <v-text-field label="email" hide-details="auto" v-model="username"></v-text-field>
-                                    <v-text-field label="password" id="password" type="password"  v-model="password"></v-text-field>
-                                        <div class="flex items-center justify-between">
-                                            <div class="flex items-center">
-                                                <input id="remember_me" name="remember_me" type="checkbox" class="h-4 w-4 bg-indigo-500 focus:ring-indigo-400 border-gray-300 rounded">
-                                                    <label for="remember_me" class="ml-2 block text-sm text-gray-900">
-                                                    Remember me
-                                                 </label>
-                                            </div>
-                                        </div>
-                                    <div class="flex w-full mt-8">
-                                <v-btn @click.prevent="login()" type="submit"  elevation="2" large x-large>Login</v-btn>
-                        </div>
+                            <v-text-field label="email" hide-details="auto" v-model="username"></v-text-field>
+                            <v-text-field label="password" id="password" type="password" v-model="password"></v-text-field>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center">
+                                    <input id="remember_me" name="remember_me" type="checkbox" class="h-4 w-4 bg-indigo-500 focus:ring-indigo-400 border-gray-300 rounded">
+                                    <label for="remember_me" class="ml-2 block text-sm text-gray-900">
+                                        Remember me
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="flex w-full mt-8">
+                                <v-btn @click.prevent="login()" type="submit" elevation="2" large x-large>Login</v-btn>
+                            </div>
                             <!-- <div class="mb-4">
                                 <label class="block text-grey-darker text-sm font-bold mb-2" for="username">
                                     Email
@@ -61,106 +60,71 @@
                         </div>
 
                     </div>
-            
-                
-                
-                    
-                </v-form>         
-                </div>
-            </v-dialog>
-       
+
+                </v-form>
+            </div>
+        </v-dialog>
+
     </div>
 
 </div>
 </template>
 
 <script>
-import { end_point , api_login } from '../../config/config';
-const url  = end_point + api_login
+import {
+    end_point,
+    api_login
+} from '../../config/config';
+const url = end_point + api_login
 import Swal from 'sweetalert2'
 export default {
     data() {
         return {
-            dialog: true,
-            username:'',
-            password:''
+            // dialog: true,
+            username: '',
+            password: '',
+            // token: '',
         }
     },
-    // async fetch(){
-    //     this.form = await fetch(
-    //         url,
-    //         console.log(fetch)
-    //     ).then(res => res.json())
-    // },
+
     methods: {
-        async login(){
+        async login() {
             try {
-            await fetch(url,{
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                credentials: 'include',
-                body: JSON.stringify({
-                username: this.username,
-                password: this.password
-                }),
-            })
-            console.log(fetch)
-            await this.$router.push('/')
-            await Swal.fire({
+                await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    credentials: 'include',
+                    body: JSON.stringify({
+                        username: this.username,
+                        password: this.password,
+                        token: this.token
+                    })
+                })
+                console.log(fetch)
+                await this.$router.push('/')
+                await Swal.fire({
                     position: 'center',
                     icon: 'success',
                     title: 'ยินดีต้อนรับ',
                     showConfirmButton: false,
                     timer: 1100
-                    })
-                    
-                } catch (error) {
+                })
+
+            } catch (error) {
                 await Swal.fire({
                     position: 'center',
                     icon: 'error',
                     title: 'ไม่สามารถเข้าสู่ระบบได้',
                     showConfirmButton: false,
                     timer: 1100
-                    })
+                })
                 await this.$router.push('/auth/login')
             }
-        },
-
-
-        // async login(){
-        //     try {
-        //         let rs = await this.$axios.post('account/login/', this.form)
-        //         let { data }= rs
-        //         localStorage.setItem('token',data.jwt)
-                
-                
-        //         // this.$axios.setHeader('Cookie',data.jwt)
-        //         // document.cookie =  setCookie("Cookie",data.jwt)
-        //         // console.log(rs)           
-        //         await this.$router.push('/Pageone/profile')
-        //         await Swal.fire({
-        //             position: 'center',
-        //             icon: 'success',
-        //             title: 'ยินดีต้อนรับ',
-        //             showConfirmButton: false,
-        //             timer: 1000
-        //             })
-                    
-        //     } catch (error) {
-        //         await Swal.fire({
-        //             position: 'center',
-        //             icon: 'error',
-        //             title: 'ไม่สามารถเข้าสู่ระบบได้',
-        //             showConfirmButton: false,
-        //             timer: 1000
-        //             })
-        //         await this.$router.push('/auth/login')
-        //     }
-        // },
-        
+        }
     }
 }
-    
 </script>
 
 <style>
