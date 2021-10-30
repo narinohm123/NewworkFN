@@ -91,7 +91,8 @@
                 </v-app-bar>
             </div>
         </div>
-        <div class="Homepage">
+        
+        <div class="Homepage" @click="push('/')">
             <v-btn depressed outlined plain raised>หน้าเเรก</v-btn>
         </div>
     </div>

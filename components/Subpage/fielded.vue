@@ -15,6 +15,13 @@
                         </div>
                     </div>
                     <v-btn block depressed elevation="1" large plain style="height:4vh;">คอมพิวเตอร์ธุรกิจ</v-btn>
+                    <v-btn block depressed elevation="1" large plain style="height:4vh;">เทคโนโลยีสารสนเทศ</v-btn>
+                    <v-btn block depressed elevation="1" large plain style="height:4vh;">วิทยาการคอมพิวเตอร์</v-btn>
+                    <v-btn block depressed elevation="1" large plain style="height:4vh;">ภูมิสารสนเทศศาสตร์</v-btn>
+                    <v-btn block depressed elevation="1" large plain style="height:4vh;">วิศวกรรมคอมพิวเตอร์</v-btn>
+                    <v-btn block depressed elevation="1" large plain style="height:4vh;">วิศวกรรมซอฟต์แวร์</v-btn>
+                    <v-btn block depressed elevation="1" large plain style="height:4vh;">วิศวกรรมสารสนเทศและการสื่อสาร</v-btn>
+                    <v-btn block depressed elevation="1" large plain style="height:4vh;">คอมพิวเตอร์กราฟิกและมัลติมีเดีย</v-btn>
 
                     <div>
                         <div class="Htwo">
