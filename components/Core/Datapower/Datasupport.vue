@@ -33,8 +33,17 @@
             </thead>
             <tbody style="background:#F2F2F2; border: 2px solid white;">
                 <tr v-for="datas,i in data" :key="i">
-                    <td>{{ datas.faculty }}</td>
+                    <td>{{ datas.position }}</td>
+                    <td class="text-center">{{ datas.bhd }}</td>
                     <td class="text-center">{{ datas.master }}</td>
+                    <td class="text-center">{{ datas.sf }}</td>
+                    <td class="text-center">{{ datas.specific_sf }}</td>
+                    <td class="text-center">{{ datas.prof }}</td>
+                    <td class="text-center">{{ datas.specific_prof }}</td>
+                    <td class="text-center">{{ datas.work }}</td>
+                    <td class="text-center">{{ datas.leave }}</td>
+                    <td class="text-center">{{ datas.total }}</td>
+
                 </tr>
             </tbody>
         </template>
@@ -49,7 +58,7 @@
 import {
     end_point,
     serviceManpower
-} from '../../config/config';
+} from '../../../config/config';
 const url = end_point + serviceManpower
 import Swal from 'sweetalert2'
 export default {

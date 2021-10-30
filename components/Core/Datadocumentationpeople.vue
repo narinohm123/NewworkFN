@@ -1,24 +1,10 @@
 <template>
 <div>
-
-    <div class="HTable">
-        <v-simple-table>
-            <template v-slot:default>
-                <thead>
-
-                </thead>
-                <tbody style="background:#F2F2F2; border: 2px solid white;">
-
-                    <tr v-for="datas,i in data" :key="i">
-                        <td>{{ datas.faculty }}</td>
-                        <td>{{ datas.master }}</td>
-                    </tr>
-                </tbody>
-            </template>
-        </v-simple-table>
-    </div>
-    <pre>{{data}}</pre>
     
+    <div class="HTable">
+        hgukghuko
+    </div>
+    <!-- <pre>{{data}}</pre> -->
     <!-- <pre>{{year}}</pre> -->
 </div>
 </template>
@@ -49,7 +35,7 @@ export default {
             const content = await response.json()
             console.log(content)
             this.data = content
-            // this.year = content
+            this.year = content
 
         } catch (error) {
 

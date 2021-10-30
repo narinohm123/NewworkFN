@@ -50,7 +50,6 @@
                             </v-list>
                         </v-menu>
                     </div>
-
                     <div class="text-center">
                         <v-menu offset-y>
                             <template v-slot:activator="{ on, attrs }">
@@ -66,8 +65,6 @@
                             </v-list>
                         </v-menu>
                     </div>
-
-
                     <div class="text-center">
                         <v-menu offset-y>
                             <template v-slot:activator="{ on, attrs }">
@@ -79,8 +76,6 @@
 
                         </v-menu>
                     </div>
-
-
                     <div class="text-center">
                         <v-menu offset-y>
                             <template v-slot:activator="{ on, attrs }">
@@ -93,8 +88,6 @@
                         </v-menu>
                     </div>
 
-
-                
                 </v-app-bar>
             </div>
         </div>
@@ -164,6 +157,18 @@ export default {
 
     },
     methods: {
+        // async logout() {
+        //     await fetch(url, {
+        //             method: 'POST',
+        //             headers: {
+        //                 'Content-Type': 'application/json'
+        //             },
+        //             credentials: 'include',
+        //             // localStorage.removeItem('username')
+        //             localStorage.removeItem('user_token')
+        //             return Promise.resolve()
+        //         }),
+        //         await this.$router.push('/auth/login')
         async logout() {
             await fetch(url, {
                 method: 'POST',
@@ -171,6 +176,10 @@ export default {
                     'Content-Type': 'application/json'
                 },
                 credentials: 'include',
+
+                // localStorage.removeItem('username'),
+                // localStorage.removeItem('user_token'),
+                // return Promise.resolve()
             });
             await Swal.fire({
                 position: 'center',
@@ -179,6 +188,7 @@ export default {
                 showConfirmButton: false,
                 timer: 1100
             });
+
             await this.$router.push('/auth/login')
         },
     },

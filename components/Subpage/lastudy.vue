@@ -11,38 +11,102 @@
 
                     </div>
                     <div>
-                        <div class="Hto">
-                        </div>
-                    </div>
-                    <v-btn block depressed elevation="1" large plain style="height:4vh;">คอมพิวเตอร์ธุรกิจ</v-btn>
-                    <v-btn block depressed elevation="1" large plain style="height:4vh;">เทคโนโลยีสารสนเทศ</v-btn>
-                    <v-btn block depressed elevation="1" large plain style="height:4vh;">วิทยาการคอมพิวเตอร์</v-btn>
-                    <v-btn block depressed elevation="1" large plain style="height:4vh;">ภูมิสารสนเทศศาสตร์</v-btn>
-                    <v-btn block depressed elevation="1" large plain style="height:4vh;">วิศวกรรมคอมพิวเตอร์</v-btn>
-                    <v-btn block depressed elevation="1" large plain style="height:4vh;">วิศวกรรมซอฟต์แวร์</v-btn>
-                    <v-btn block depressed elevation="1" large plain style="height:4vh;">วิศวกรรมสารสนเทศและการสื่อสาร</v-btn>
-                    <v-btn block depressed elevation="1" large plain style="height:4vh;">คอมพิวเตอร์กราฟิกและมัลติมีเดีย</v-btn>
-                    <v-btn block depressed elevation="1" large plain style="height:4vh;">สำนักงานคณะ</v-btn>
-
-                    <div>
-
+                        <v-menu offset-y>
+                            <template v-slot:activator="{ on, attrs }">
+                                <v-btn v-bind="attrs" v-on="on">
+                                    ข้อมูลการลาของบุคลากร
+                                </v-btn>
+                            </template>
+                            <v-list>
+                                <v-list-item v-for="(academicd, index) in yearac" :key="index">
+                                    <v-list-item-title @click="PowerrateState = 0">{{ academicd.year }}</v-list-item-title>
+                                </v-list-item>
+                            </v-list>
+                        </v-menu>
+            </div>
                     </div>
                 </div>
-            </div>
         </v-sheet>
 
     </div>
     <v-sheet class="p-1 m-1 w-3/4 h-full" color="white" elevation="5" height="76vh" width="74.5vw">
         <div class=" p-0 m-0 w-3/4 h-full  border-3 line rounded " style="width:74vw; height:75vh;">
-            <Core-Datalastudy/>
+            <div v-if="PowerrateState == 0">
+                <Core-Datala-Datalastudy />
+            </div>
         </div>
     </v-sheet>
 </div>
 </template>
 
 <script>
+import {
+    end_point,
+    leavetime,
+    studyleave
+} from '../../config/config';
+const url = end_point + leavetime
+const urls = end_point + studyleave
 export default {
+    data() {
+        return {
+            data: {},
+            academicdialog: false,
+            servicedialog: false,
+            powerratelist: ['ข้อมูลบุคลากร', 'บุคลลากรสายสนับสนุน'],
+            yearac: [],
+            yearsv: []
+        }
 
+    },
+    async mounted() {
+        try {
+            const response = await fetch(
+                url,
+                // console.log(fetch)
+            )
+            const content = await response.json().then()
+            console.log(content)
+            this.yearac = content
+            // this.year = content
+
+        } catch (error) {
+
+        }
+        try {
+            const rs = await fetch(
+                urls,
+                // console.log(fetch)
+            )
+            const ct = await rs.json().then()
+            console.log(ct)
+            this.yearsv = content
+            // this.year = content
+
+        } catch (error) {
+
+        }
+
+    },
+    computed: {
+        PowerrateState: {
+            get() {
+                // this.ContactTabinformation = this.$nuxt.$store.state.information
+                return this.$nuxt.$store.state.powerrate
+            },
+            set(val) {
+                // console.log('information', this.$nuxt.$store.state.information)
+                this.$store.commit('set_powerrate', val)
+                // console.log('information', this.$nuxt.$store.state.information)
+            }
+        },
+        
+    },
+    methods: {
+        async test(x){
+            console.log(x)
+        }
+    },
 }
 </script>
 
@@ -70,5 +134,10 @@ export default {
     justify-content: center;
     align-items: center;
     font-weight: bold;
+}
+thead tr th {
+    text-align: center;
+    background: #DEEBF7;
+    border: 2px solid white;
 }
 </style>

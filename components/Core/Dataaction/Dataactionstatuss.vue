@@ -21,25 +21,28 @@
 
                 </thead>
                 <tbody style="background:#F2F2F2; border: 2px solid white;">
-                    
+
                     <tr v-for="datas,i in data" :key="i">
-                    <td>{{ datas.faculty }}</td>
-                    <td>{{ datas.master }}</td>
-                </tr>
+                        <td class="text-center">{{ datas.id }}</td>
+                        <td>{{ datas.name }}</td>
+                        <td class="text-center">{{ datas.date_request }}</td>
+                        <td class="text-center">{{ datas.position_rc }}</td>
+                        <td class="text-center">{{ datas.situation }}</td>
+                    </tr>
                 </tbody>
             </template>
         </v-simple-table>
     </div>
-        <pre>{{data}}</pre>
-        <!-- <pre>{{year}}</pre> -->
-    </div>
+    <pre>{{data}}</pre>
+    <!-- <pre>{{year}}</pre> -->
+</div>
 </template>
 
 <script>
 import {
     end_point,
     pending
-} from '../../config/config';
+} from '../../../config/config';
 const url = end_point + pending
 import Swal from 'sweetalert2'
 export default {
@@ -83,6 +86,7 @@ thead tr th {
     background: #DEEBF7;
     border: 2px solid white;
 }
+
 .HTable {
     margin: 10px;
     padding: 10px;

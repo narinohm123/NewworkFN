@@ -32,14 +32,23 @@
                 </thead>
                 <tbody style="background:#F2F2F2; border: 2px solid white;">
                     <tr v-for="datas,i in data" :key="i">
-                        <td >{{ datas.faculty }}</td>
+                        <td>{{ datas.position }}</td>
                         <td class="text-center">{{ datas.master }}</td>
+                        <td class="text-center">{{ datas.phd }}</td>
+                        <td class="text-center">{{ datas.exteach }}</td>
+                        <td class="text-center">{{ datas.teach }}</td>
+                        <td class="text-center">{{ datas.asst_prof }}</td>
+                        <td class="text-center">{{ datas.assoc_prof }}</td>
+                        <td class="text-center">{{ datas.work }}</td>
+                        <td class="text-center">{{ datas.leave }}</td>
+                        <td class="text-center">{{ datas.total }}</td>
                     </tr>
                 </tbody>
             </template>
         </v-simple-table>
     </div>
     <!-- <pre>{{data}}</pre> -->
+    <pre>{{data}}</pre>
     <pre>{{year}}</pre>
 </div>
 </template>
@@ -48,7 +57,7 @@
 import {
     end_point,
     academicpower
-} from '../../config/config';
+} from '../../../config/config';
 const url = end_point + academicpower
 import Swal from 'sweetalert2'
 export default {
@@ -59,6 +68,14 @@ export default {
             //     year: ""
             // }
 
+        }
+    },
+
+    computed: {
+        powerRateState: {
+            get() {
+                return this.$nuxt.$store.state.powerrate
+            }
         }
     },
     async mounted() {
@@ -98,3 +115,4 @@ thead tr th {
     padding: 10px;
 }
 </style>
+ 

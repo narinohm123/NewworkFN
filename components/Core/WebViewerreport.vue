@@ -24,8 +24,9 @@ export default {
 </script>
 
 <style>
-    #webviewer{
-        height: 74.5vh;
-        width: auto;
+     #webviewer{
+        align-items: center;
+        height: 75vh;
+        width: 60vw;
     }
 </style>

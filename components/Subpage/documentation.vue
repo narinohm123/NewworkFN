@@ -11,7 +11,10 @@
                     </div>
                     <div>
                         <div class="Hto">
-                            <h1 class="p-1 m-1 w-1/1 h-full" style='font-size: 18px; '>เอกสารประกอบการสอน / คำสอน</h1>
+                            <v-btn @click="DatadocumentationpeopleState = 0">
+                                เอกสารประกอบการสอน / คำสอน
+                            </v-btn>
+
                         </div>
                     </div>
 
@@ -26,15 +29,68 @@
     </div>
     <v-sheet class="p-1 m-1 w-3/4 h-full" color="white" elevation="5" height="76vh" width="74.5vw">
         <div class=" p-0 m-0 w-3/4 h-full  border-3 line rounded " style="width:74vw; height:75vh;">
-            <Core-Datadocumentationpeople/>
+            <div v-if="DatadocumentationpeopleState == 0">
+                <Core-Datadocumentation />
+            </div>
         </div>
     </v-sheet>
 </div>
 </template>
 
 <script>
-export default {
+import {
+    end_point,
+    documents,
 
+} from '../../config/config';
+const url = end_point + documents
+
+export default {
+    data() {
+        return {
+            data: {},
+            academicdialog: false,
+            servicedialog: false,
+            yearac: [],
+
+        }
+
+    },
+    async mounted() {
+        try {
+            const response = await fetch(
+                url,
+                // console.log(fetch)
+            )
+            const content = await response.json().then()
+            console.log(content)
+            this.yearac = content
+            // this.year = content
+
+        } catch (error) {
+
+        }
+
+    },
+    computed: {
+        DatadocumentationpeopleState: {
+            get() {
+                // this.ContactTabinformation = this.$nuxt.$store.state.information
+                return this.$nuxt.$store.state.datadocumentationpeople
+            },
+            set(val) {
+                // console.log('information', this.$nuxt.$store.state.information)
+                this.$store.commit('set_datadocumentationpeople', val)
+                // console.log('information', this.$nuxt.$store.state.information)
+            }
+        },
+
+    },
+    methods: {
+        async test(x) {
+            console.log(x)
+        }
+    },
 }
 </script>
 
@@ -62,5 +118,11 @@ export default {
     justify-content: center;
     align-items: center;
     font-weight: bold;
+}
+
+thead tr th {
+    text-align: center;
+    background: #DEEBF7;
+    border: 2px solid white;
 }
 </style>

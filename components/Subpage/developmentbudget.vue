@@ -12,20 +12,21 @@
 
                     </div>
                     <div>
-                        <div class="Hto">
-                        </div>
+                        <v-menu offset-y>
+                            <template v-slot:activator="{ on, attrs }">
+                                <v-btn v-bind="attrs" v-on="on">
+                                   เลือกข้อมูลสายบริการเเละสายสนับสนุน
+                                </v-btn>
+                            </template>
+                            <v-list>
+                                <v-list-item v-for="(data, index) in faculty" :key="index">
+                                    <v-list-item-title @click="DevelopState = 0">{{ data.faculty }}</v-list-item-title>
+                                </v-list-item>
+                            </v-list>
+                        </v-menu>
+                        
                     </div>
-                    <v-btn block depressed elevation="1" large plain style="height:4vh;">คอมพิวเตอร์ธุรกิจ</v-btn>
-                    <v-btn block depressed elevation="1" large plain style="height:4vh;">เทคโนโลยีสารสนเทศ</v-btn>
-                    <v-btn block depressed elevation="1" large plain style="height:4vh;">วิทยาการคอมพิวเตอร์</v-btn>
-                    <v-btn block depressed elevation="1" large plain style="height:4vh;">ภูมิสารสนเทศศาสตร์</v-btn>
-                    <v-btn block depressed elevation="1" large plain style="height:4vh;">วิศวกรรมคอมพิวเตอร์</v-btn>
-                    <v-btn block depressed elevation="1" large plain style="height:4vh;">วิศวกรรมซอฟต์แวร์</v-btn>
-                    <v-btn block depressed elevation="1" large plain style="height:4vh;">วิศวกรรมสารสนเทศและการสื่อสาร</v-btn>
-                    <v-btn block depressed elevation="1" large plain style="height:4vh;">คอมพิวเตอร์กราฟิกและมัลติมีเดีย</v-btn>
-                    <v-btn block depressed elevation="1" large plain style="height:4vh;">สำนักงานคณะ</v-btn>
-                    <div>
-                    </div>
+
                 </div>
             </div>
         </v-sheet>
@@ -33,15 +34,66 @@
     </div>
     <v-sheet class="p-1 m-1 w-3/4 h-full" color="white" elevation="5" height="76vh" width="74.5vw">
         <div class=" p-0 m-0 w-3/4 h-full  border-3 line rounded " style="width:74vw; height:75vh;">
-            <Core-Datadevelopmentbudget/>
+            <div v-if="DevelopState == 0">
+                <Core-Databudget-Datadevelopmentbudget />
+            </div>
         </div>
     </v-sheet>
 </div>
 </template>
 
 <script>
+import {
+    end_point,
+    budgets,
+} from '../../config/config';
+const url = end_point + budgets
 export default {
+    data() {
+        return {
+            academicdialog: false,
+            servicedialog: false,
+            faculty: [],
 
+        }
+
+    },
+    async mounted() {
+        try {
+            const response = await fetch(
+                url,
+                // console.log(fetch)
+            )
+            const content = await response.json().then()
+            console.log(content)
+            this.faculty = content
+            // this.year = content
+
+        } catch (error) {
+
+        }
+        
+
+    },
+    computed: {
+        DevelopState: {
+            get() {
+                // this.ContactTabinformation = this.$nuxt.$store.state.information
+                return this.$nuxt.$store.state.develop
+            },
+            set(val) {
+                // console.log('information', this.$nuxt.$store.state.information)
+                this.$store.commit('set_develop', val)
+                // console.log('information', this.$nuxt.$store.state.information)
+            }
+        },
+        
+    },
+    methods: {
+        async test(x){
+            console.log(x)
+        }
+    },
 }
 </script>
 
@@ -69,5 +121,10 @@ export default {
     justify-content: center;
     align-items: center;
     font-weight: bold;
+}
+thead tr th {
+    text-align: center;
+    background: #DEEBF7;
+    border: 2px solid white;
 }
 </style>

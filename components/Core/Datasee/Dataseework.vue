@@ -29,16 +29,24 @@
 
                 </thead>
                 <tbody style="background:#F2F2F2; border: 2px solid white;">
-                        
+
                     <tr v-for="datas,i in data" :key="i">
-                        <td>{{ datas.faculty }}</td>
-                        <td>{{ datas.total }}</td>
+                        <td>{{ datas.position }}</td>
+                        <td class="text-center">{{ datas.total }}</td>
+                        <td class="text-center">{{ datas.train_people }}</td>
+                        <td class="text-center">{{ datas.train_time }}</td>
+                        <td class="text-center">{{ datas.seminar_people }}</td>
+                        <td class="text-center">{{ datas.seminar_time }}</td>
+                        <td class="text-center">{{ datas.observe_people }}</td>
+                        <td class="text-center">{{ datas.observe_time }}</td>
+
                     </tr>
                 </tbody>
             </template>
         </v-simple-table>
     </div>
     <pre>{{data}}</pre>
+    <pre>{{year}}</pre>
     <!-- <pre>{{year}}</pre> -->
 </div>
 </template>
@@ -47,7 +55,7 @@
 import {
     end_point,
     events
-} from '../../config/config';
+} from '../../../config/config';
 const url = end_point + events
 import Swal from 'sweetalert2'
 export default {

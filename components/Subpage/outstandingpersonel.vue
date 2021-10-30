@@ -9,17 +9,21 @@
                             ข้อมูลบุคลากรดีเด่น</v-sheet>
 
                     </div>
+                    
                     <div>
-                        <div class="Hto">
-                        </div>
+                        <v-menu offset-y>
+                            <template v-slot:activator="{ on, attrs }">
+                                <v-btn v-bind="attrs" v-on="on">
+                                    คลิกเพื่อเลือกปีที่ต้องการ
+                                </v-btn>
+                            </template>
+                            <v-list>
+                                <v-list-item v-for="(data, index) in yearao" :key="index">
+                                    <v-list-item-title @click="OutstanState = 0">{{ data.year }}</v-list-item-title>
+                                </v-list-item>
+                            </v-list>
+                        </v-menu>
                     </div>
-                    <v-btn block depressed elevation="1" large plain style="height:4vh;">2563</v-btn>
-                    <v-btn block depressed elevation="1" large plain style="height:4vh;">2562</v-btn>
-                    <v-btn block depressed elevation="1" large plain style="height:4vh;">2561</v-btn>
-                    <v-btn block depressed elevation="1" large plain style="height:4vh;">2560</v-btn>
-                    <v-btn block depressed elevation="1" large plain style="height:4vh;">2559</v-btn>
-                    <v-btn block depressed elevation="1" large plain style="height:4vh;">2558</v-btn>
-
                     <div>
 
                     </div>
@@ -31,15 +35,112 @@
     </div>
     <v-sheet class="p-1 m-1 w-3/4 h-full" color="white" elevation="5" height="76vh" width="74.5vw">
         <div class=" p-0 m-0 w-3/4 h-full  border-3 line rounded " style="width:74vw; height:75vh;">
-            <Core-Dataoutstandingpersonel/>
+            <div v-if="OutstanState == 0">
+                <Core-Dataoutstanding-Dataoutstandingpersonel />
+            </div>
+
         </div>
     </v-sheet>
 </div>
 </template>
 
 <script>
+import {
+    end_point,
+    academiceOutstand,
+} from '../../config/config';
+const url = end_point + academiceOutstand
 export default {
+    data() {
+        return {
+            academicdialog: false,
+            servicedialog: false,
+            year: [],
+            yearso:[],
+            yearao:[]
+        }
 
+    },
+    async created(){
+        await this.yearfn();
+    },
+    async mounted() {
+        // try {
+        //     const response = await fetch(
+        //         url,
+        //         // console.log(fetch)
+        //     )
+        //     const content = await response.json().then()
+        //     console.log(content)
+        //     this.yearao = content
+        //     // this.year = content
+
+        // } catch (error) {
+
+        // }
+        // try {
+        //     const response = await fetch(
+        //         urls,
+        //         // console.log(fetch)
+        //     )
+        //     const content = await response.json().then()
+        //     console.log(content)
+        //     this.yearso = content
+        //     // this.year = content
+
+        // } catch (error) {
+
+        // }
+
+    },
+    computed: {
+        OutstanState: {
+            get() {
+                // this.ContactTabinformation = this.$nuxt.$store.state.information
+                return this.$nuxt.$store.state.outstan
+            },
+            set(val) {
+                // console.log('information', this.$nuxt.$store.state.information)
+                this.$store.commit('set_outstan', val)
+                // console.log('information', this.$nuxt.$store.state.information)
+            }
+        },
+
+    },
+    methods: {
+        async test(x) {
+            console.log(x)
+        },
+        //this.year();
+        async yearfn() {
+            try {
+                const response = await fetch(
+                    urls,
+                    // console.log(fetch)
+                )
+                const content = await response.json().then()
+                console.log(content)
+                this.yearso = content
+                // this.year = content
+
+            } catch (error) {
+
+            }
+            try {
+                const response = await fetch(
+                    url,
+                    // console.log(fetch)
+                )
+                const content = await response.json().then()
+                console.log(content)
+                this.yearao = content
+                // this.year = content
+
+            } catch (error) {
+
+            }
+        }
+    },
 }
 </script>
 
@@ -67,5 +168,17 @@ export default {
     justify-content: center;
     align-items: center;
     font-weight: bold;
+}
+
+thead tr th {
+    text-align: center;
+    background: #DEEBF7;
+    border: 2px solid white;
+}
+
+.Table {
+    display: flex;
+    justify-content: space-between;
+
 }
 </style>

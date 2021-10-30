@@ -1,4 +1,6 @@
 <template>
+
+
 <div>
 
  <div v-if="informationState == 0">

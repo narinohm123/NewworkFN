@@ -1,20 +1,7 @@
 <template>
 <div>
 <div class="HTable">
-    <v-simple-table>
-        <template v-slot:default>
-            <thead>
-                
-
-            </thead>
-            <tbody>
-                <tr v-for="datas,i in data" :key="i">
-                    <td>{{ datas.faculty }}</td>
-                    <td>{{ datas.master }}</td>
-                </tr>
-            </tbody>
-        </template>
-    </v-simple-table>
+    fyjdgfj
 </div>
     <pre>{{data}}</pre>
     <!-- <pre>{{year}}</pre> -->

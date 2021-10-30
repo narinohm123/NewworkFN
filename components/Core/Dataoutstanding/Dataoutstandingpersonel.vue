@@ -22,11 +22,12 @@
                     </thead>
 
                     <tbody style="background:#F2F2F2; border: 2px solid white;">
-                        
-                        <tr v-for="datas,i in data" :key="i">
-                    <td>{{ datas.faculty }}</td>
-                    <td>{{ datas.master }}</td>
-                </tr>
+
+                        <tr v-for="data,i in ao" :key="i" v-if="data.typeps === 'บุคลากรสายวิชาการ'">
+                            <td>{{ data.rank }}</td>
+                            <td>{{ data.type_a }}</td>
+                            <td>{{ data.name }}</td>
+                        </tr>
                     </tbody>
                 </template>
             </v-simple-table>
@@ -43,17 +44,18 @@
                     </thead>
 
                     <tbody style="background:#F2F2F2; border: 2px solid white;">
-                        
-                        <tr v-for="datas,i in data" :key="i">
-                    <td>{{ datas.faculty }}</td>
-                    <td>{{ datas.master }}</td>
-                </tr>
+                         <tr v-for="data,i in ao" :key="i"  v-if="data.typeps === 'บุคลากรสายบริการ'">
+                            <td>{{ data.rank }}</td>
+                            <td>{{ data.type_a }}</td>
+                            <td>{{ data.name }}</td>
+                        </tr>
+                    
                     </tbody>
                 </template>
             </v-simple-table>
         </div>
     </div>
-    <pre>{{data}}</pre>
+    ao<pre>{{ao}}</pre>
     <!-- <pre>{{year}}</pre> -->
 </div>
 </template>
@@ -62,18 +64,15 @@
 import {
     end_point,
     academiceOutstand,
-    serviceOutstand
-} from '../../config/config';
+} from '../../../config/config';
 const url = end_point + academiceOutstand
-const urls = end_point + serviceOutstand
 import Swal from 'sweetalert2'
 export default {
     data() {
         return {
-            data: {},
-            // year: {
-            //     year: ""
-            // }
+            ao: {},
+            year: {
+            }
 
         }
     },
@@ -81,14 +80,13 @@ export default {
         try {
             const response = await fetch(
                 url,
-                urls,
+
                 console.log(fetch)
             )
             const content = await response.json()
             console.log(content)
-            this.data = content
+            this.ao = content
             // this.year = content
-
 
         } catch (error) {
 
@@ -110,11 +108,12 @@ thead tr th {
     background: #DEEBF7;
     border: 2px solid white;
 }
-.Table{
-    display: flex; 
+
+.Table {
+    display: flex;
     justify-content: space-around;
     margin: 10px;
     padding: 10px;
-    
+
 }
 </style>

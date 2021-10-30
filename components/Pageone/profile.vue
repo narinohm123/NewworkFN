@@ -50,24 +50,24 @@
                                 <p class="m-0 mb-0 p-1 ">ที่อยู่ปัจจุบัน</p>
                             </div>
                             <div class="border-l-2 p-1 ">
-                                <p  class="m-0 mb-0 p-1 ">{{profile.id_Position}}</p>
-                                <p  class="m-0 mb-0 p-1 ">{{ profile.first_name}}  {{profile.last_name}}</p> 
-                                <p  class="m-0 mb-0 p-1 ">{{ profile.name_en}}</p>
-                                <p  class="m-0 mb-0 p-1 ">{{ profile.personal_type}}</p>
-                                <p  class="m-0 mb-0 p-1 ">{{ profile.line_of_work}}</p>
-                                <p  class="m-0 mb-0 p-1 ">{{ profile.position}}</p>
-                                <p  class="m-0 mb-0 p-1 ">{{ profile.academic_position}}</p>
-                                <p  class="m-0 mb-0 p-1 ">{{ profile.director_position}}</p>
-                                <p  class="m-0 mb-0 p-1 ">{{ profile.start_work_date}}</p>
-                                <p  class="m-0 mb-0 p-1 ">{{ profile.placement_date}}</p>
-                                <p  class="m-0 mb-0 p-1 ">{{ profile.status_job}}</p>
-                                <p  class="m-0 mb-0 p-1 ">{{ profile.date_birth}}</p>
-                                <p  class="m-0 mb-0 p-1 ">{{ profile.nationality}}</p>
-                                <p  class="m-0 mb-0 p-1 ">{{ profile.religion_con}}</p>
-                                <p  class="m-0 mb-0 p-1 ">{{ profile.phone}}</p>
-                                <p  class="m-0 mb-0 p-1 ">{{ profile.email_UP}}</p>
-                                <p  class="m-0 mb-0 p-1 ">{{ profile.email_private}}</p>
-                                <p  class="m-0 mb-0 p-1 ">{{ profile.address}}</p>
+                                <p class="m-0 mb-0 p-1 ">{{profile.id_Position}}</p>
+                                <p class="m-0 mb-0 p-1 ">{{ profile.first_name}} {{profile.last_name}}</p>
+                                <p class="m-0 mb-0 p-1 ">{{ profile.name_en}}</p>
+                                <p class="m-0 mb-0 p-1 ">{{ profile.personal_type}}</p>
+                                <p class="m-0 mb-0 p-1 ">{{ profile.line_of_work}}</p>
+                                <p class="m-0 mb-0 p-1 ">{{ profile.position}}</p>
+                                <p class="m-0 mb-0 p-1 ">{{ profile.academic_position}}</p>
+                                <p class="m-0 mb-0 p-1 ">{{ profile.director_position}}</p>
+                                <p class="m-0 mb-0 p-1 ">{{ profile.start_work_date}}</p>
+                                <p class="m-0 mb-0 p-1 ">{{ profile.placement_date}}</p>
+                                <p class="m-0 mb-0 p-1 ">{{ profile.status_job}}</p>
+                                <p class="m-0 mb-0 p-1 ">{{ profile.date_birth}}</p>
+                                <p class="m-0 mb-0 p-1 ">{{ profile.nationality}}</p>
+                                <p class="m-0 mb-0 p-1 ">{{ profile.religion_con}}</p>
+                                <p class="m-0 mb-0 p-1 ">{{ profile.phone}}</p>
+                                <p class="m-0 mb-0 p-1 ">{{ profile.email_UP}}</p>
+                                <p class="m-0 mb-0 p-1 ">{{ profile.email}}</p>
+                                <p class="m-0 mb-0 p-1 ">{{ profile.address}}</p>
                             </div>
                         </v-sheet>
                     </div>
@@ -82,8 +82,8 @@
                     </div>
                     <div class="d-flex flex-row p-1 ">
                         <v-sheet class="w-full h-full w-max p-2 d-flex flex-row " color="white" elevation="2" height="68.4vh" width="49.5vw">
-                            <div style="width: 17vw;" >
-                                <div class="m-2" >
+                            <div style="width: 17vw;">
+                                <div class="m-2">
 
                                     &ocir; ปริญญาตรี
 
@@ -118,7 +118,7 @@
                                 </div>
 
                             </div>
-                            <div style="width: 17vw;" >
+                            <div style="width: 17vw;">
                                 <div class="m-2">
                                     &ocir; ปริญญาโท
                                 </div>
@@ -180,6 +180,222 @@
                                     </div>
                                 </div>
                             </div>
+                            <template>
+                                <v-row justify="center">
+                                    <v-dialog v-model="dialog" fullscreen persistent max-width="100vw">
+                                        <template v-slot:activator="{ on, attrs }">
+                                            <v-btn color="primary" dark v-bind="attrs" v-on="on">
+                                                Open Dialog
+                                            </v-btn>
+                                        </template>
+                                        <v-card>
+                                            <v-card-title>
+                                                <span class="text-h5">User Profile</span>
+                                            </v-card-title>
+                                            <v-card-text>
+                                                <v-container>
+                                                    <v-form @submit.prevent="saveData()">
+                                                        <v-row>
+                                                            <v-col cols="2">
+                                                                <v-text-field v-model="profile.id_position" label="เลขที่ตำแหน่ง"></v-text-field>
+                                                                <v-text-field v-model="profile.first_name" label="ชื่อ"></v-text-field>
+                                                                <v-text-field v-model="profile.last_name" label="นามสกุล"></v-text-field>
+                                                                <v-text-field v-model="profile.name_en" label="ชื่อ-กลุ่ม(en)"></v-text-field>
+                                                                <v-text-field v-model="profile.personal_type" label="ประเภทบุคลากร"></v-text-field>
+                                                                <v-text-field v-model="profile.line_of_work" label="สายงาน"></v-text-field>
+                                                                <v-text-field v-model="profile.position" label="ตำแหน่งงาน"></v-text-field>
+                                                                <v-text-field v-model="profile.academic_position" label="ตำแหน่งทางวิชาการ"></v-text-field>
+                                                                <v-text-field v-model="profile.director_position" label="ตำแหน่งบริหาร"></v-text-field>
+                                                            </v-col>
+                                                            <v-col cols="2">
+                                                                <v-menu ref="menu" v-model="menu" :close-on-content-click="false" :return-value.sync="date" transition="scale-transition" offset-y min-width="auto">
+                                                                    <template v-slot:activator="{ on, attrs }">
+                                                                        <v-text-field v-model="profile.start_work_date" label="วันที่เข้าทำงาน" prepend-icon="mdi-calendar" readonly v-bind="attrs" v-on="on"></v-text-field>
+                                                                    </template>
+                                                                    <v-date-picker v-model="profile.start_work_date" no-title scrollable>
+                                                                        <v-spacer></v-spacer>
+                                                                        <v-btn text color="primary" @click="menu = false">
+                                                                            Cancel
+                                                                        </v-btn>
+                                                                        <v-btn text color="primary" @click="$refs.menu.save(date)">
+                                                                            OK
+                                                                        </v-btn>
+                                                                    </v-date-picker>
+                                                                </v-menu>
+                                                                <v-select :items="status" item-text="name" item-value="value" v-model="profile.status" label="สถานะปฎิบัติงาน"></v-select>
+                                                                <v-menu ref="menu" v-model="menu" :close-on-content-click="false" :return-value.sync="date" transition="scale-transition" offset-y min-width="auto">
+                                                                    <template v-slot:activator="{ on, attrs }">
+                                                                        <v-text-field v-model="profile.placement_date" label="วันที่บรรจุ" prepend-icon="mdi-calendar" readonly v-bind="attrs" v-on="on"></v-text-field>
+                                                                    </template>
+                                                                    <v-date-picker v-model="profile.placement_date" no-title scrollable>
+                                                                        <v-spacer></v-spacer>
+                                                                        <v-btn text color="primary" @click="menu = false">
+                                                                            Cancel
+                                                                        </v-btn>
+                                                                        <v-btn text color="primary" @click="$refs.menu.save(date)">
+                                                                            OK
+                                                                        </v-btn>
+                                                                    </v-date-picker>
+                                                                </v-menu>
+                                                                <v-menu ref="menu" v-model="menu" :close-on-content-click="false" :return-value.sync="date" transition="scale-transition" offset-y min-width="auto">
+                                                                    <template v-slot:activator="{ on, attrs }">
+                                                                        <v-text-field v-model="profile.date_birth" label="วันเดือนปีเกิด" prepend-icon="mdi-calendar" readonly v-bind="attrs" v-on="on"></v-text-field>
+                                                                    </template>
+                                                                    <v-date-picker v-model="profile.date_birth" no-title scrollable>
+                                                                        <v-spacer></v-spacer>
+                                                                        <v-btn text color="primary" @click="menu = false">
+                                                                            Cancel
+                                                                        </v-btn>
+                                                                        <v-btn text color="primary" @click="$refs.menu.save(date)">
+                                                                            OK
+                                                                        </v-btn>
+                                                                    </v-date-picker>
+                                                                </v-menu>
+                                                                <v-text-field v-model="profile.nationality" label="สัญชาติ"></v-text-field>
+                                                                <v-text-field v-model="profile.religion_con" label="ศาสนา"></v-text-field>
+                                                                <v-text-field v-model="profile.phone" label="เบอร์โทร"></v-text-field>
+                                                                <v-text-field v-model="profile.email_UP" label="อีเมล ม.พะเยา"></v-text-field>
+                                                                <v-text-field v-model="profile.email" label="อีเมล ส่วนตัว"></v-text-field>
+
+                                                            </v-col>
+                                                            <v-col cols="2">
+                                                                <v-textarea solo name="input-7-4" label="ที่อยู่"></v-textarea>
+
+                                                            </v-col>
+                                                            <v-col cols="2">
+                                                                ปริญญาตรี
+                                                                <v-text-field v-model="profile.degree" label="วุฒิการศึกษา"></v-text-field>
+                                                                <v-text-field v-model="profile.faculty" label="สาขาวิชา"></v-text-field>
+                                                                <v-text-field v-model="profile.university" label="สถานศึกษา"></v-text-field>
+                                                                <v-text-field v-model="profile.province" label="จังหวัด"></v-text-field>
+                                                                <v-text-field v-model="profile.country" label="ประเทศ"></v-text-field>
+                                                                <v-menu ref="menu" v-model="menu" :close-on-content-click="false" :return-value.sync="date" transition="scale-transition" offset-y min-width="auto">
+                                                                    <template v-slot:activator="{ on, attrs }">
+                                                                        <v-text-field v-model="profile.study_date" label="วันที่เข้าศึกษา" prepend-icon="mdi-calendar" readonly v-bind="attrs" v-on="on"></v-text-field>
+                                                                    </template>
+                                                                    <v-date-picker v-model="profile.study_date" no-title scrollable>
+                                                                        <v-spacer></v-spacer>
+                                                                        <v-btn text color="primary" @click="menu = false">
+                                                                            Cancel
+                                                                        </v-btn>
+                                                                        <v-btn text color="primary" @click="$refs.menu.save(date)">
+                                                                            OK
+                                                                        </v-btn>
+                                                                    </v-date-picker>
+                                                                </v-menu>
+                                                                <v-menu ref="menu" v-model="menu" :close-on-content-click="false" :return-value.sync="date" transition="scale-transition" offset-y min-width="auto">
+                                                                    <template v-slot:activator="{ on, attrs }">
+                                                                        <v-text-field v-model="profile.graduate" label="วันที่จบการศึกษา" prepend-icon="mdi-calendar" readonly v-bind="attrs" v-on="on"></v-text-field>
+                                                                    </template>
+                                                                    <v-date-picker v-model="profile.graduate" no-title scrollable>
+                                                                        <v-spacer></v-spacer>
+                                                                        <v-btn text color="primary" @click="menu = false">
+                                                                            Cancel
+                                                                        </v-btn>
+                                                                        <v-btn text color="primary" @click="$refs.menu.save(date)">
+                                                                            OK
+                                                                        </v-btn>
+                                                                    </v-date-picker>
+                                                                </v-menu>
+                                                                <v-text-field v-model="profile.gpa" label="เกรดเฉลี่ย"></v-text-field>
+                                                                <v-text-field v-model="profile.honors" label="เกียรตินิยม"></v-text-field>
+                                                                <v-select :items="use" item-text="name" item-value="value" v-model="profile.use_choice_con" label="วุฒิที่ใช้"></v-select>
+                                                            </v-col>
+                                                            <v-col cols="2">
+                                                                ปริญญาโท
+                                                                <v-text-field v-model="profile.degree_Master" label="วุฒิการศึกษา"></v-text-field>
+                                                                <v-text-field v-model="profile.faculty_Master" label="สาขาวิชา"></v-text-field>
+                                                                <v-text-field v-model="profile.university_Master" label="สถานศึกษา"></v-text-field>
+                                                                <v-text-field v-model="profile.province_Master" label="จังหวัด"></v-text-field>
+                                                                <v-text-field v-model="profile.country_Master" label="ประเทศ"></v-text-field>
+                                                                <v-menu ref="menu" v-model="menu" :close-on-content-click="false" :return-value.sync="date" transition="scale-transition" offset-y min-width="auto">
+                                                                    <template v-slot:activator="{ on, attrs }">
+                                                                        <v-text-field v-model="profile.study_date_Master" label="วันที่เข้าศึกษา" prepend-icon="mdi-calendar" readonly v-bind="attrs" v-on="on"></v-text-field>
+                                                                    </template>
+                                                                    <v-date-picker v-model="profile.study_date_Master" no-title scrollable>
+                                                                        <v-spacer></v-spacer>
+                                                                        <v-btn text color="primary" @click="menu = false">
+                                                                            Cancel
+                                                                        </v-btn>
+                                                                        <v-btn text color="primary" @click="$refs.menu.save(date)">
+                                                                            OK
+                                                                        </v-btn>
+                                                                    </v-date-picker>
+                                                                </v-menu>
+                                                                <v-menu ref="menu" v-model="menu" :close-on-content-click="false" :return-value.sync="date" transition="scale-transition" offset-y min-width="auto">
+                                                                    <template v-slot:activator="{ on, attrs }">
+                                                                        <v-text-field v-model="profile.graduate_Master" label="วันที่จบการศึกษา" prepend-icon="mdi-calendar" readonly v-bind="attrs" v-on="on"></v-text-field>
+                                                                    </template>
+                                                                    <v-date-picker v-model="profile.graduate_Master" no-title scrollable>
+                                                                        <v-spacer></v-spacer>
+                                                                        <v-btn text color="primary" @click="menu = false">
+                                                                            Cancel
+                                                                        </v-btn>
+                                                                        <v-btn text color="primary" @click="$refs.menu.save(date)">
+                                                                            OK
+                                                                        </v-btn>
+                                                                    </v-date-picker>
+                                                                </v-menu>
+                                                                <v-text-field v-model="profile.gpa_Master" label="เกรดเฉลี่ย"></v-text-field>
+                                                                <v-text-field v-model="profile.honors_Master" label="เกียรตินิยม"></v-text-field>
+                                                                <v-select :items="use" item-text="name" item-value="value" v-model="profile.use_choice_con_Master" label="วุฒิที่ใช้"></v-select>
+                                                            </v-col>
+                                                            <v-col cols="2">
+                                                                ปริญญาเอก
+                                                                <v-text-field v-model="profile.degree_doctorate" label="วุฒิการศึกษา"></v-text-field>
+                                                                <v-text-field v-model="profile.faculty_doctorate" label="สาขาวิชา"></v-text-field>
+                                                                <v-text-field v-model="profile.university_doctorate" label="สถานศึกษา"></v-text-field>
+                                                                <v-text-field v-model="profile.province_doctorate" label="จังหวัด"></v-text-field>
+                                                                <v-text-field v-model="profile.country_doctorate" label="ประเทศ"></v-text-field>
+                                                                <v-menu ref="menu" v-model="menu" :close-on-content-click="false" :return-value.sync="date" transition="scale-transition" offset-y min-width="auto">
+                                                                    <template v-slot:activator="{ on, attrs }">
+                                                                        <v-text-field v-model="profile.study_date_doctorate" label="วันที่เข้าศึกษา" prepend-icon="mdi-calendar" readonly v-bind="attrs" v-on="on"></v-text-field>
+                                                                    </template>
+                                                                    <v-date-picker v-model="profile.study_date_doctorate" no-title scrollable>
+                                                                        <v-spacer></v-spacer>
+                                                                        <v-btn text color="primary" @click="menu = false">
+                                                                            Cancel
+                                                                        </v-btn>
+                                                                        <v-btn text color="primary" @click="$refs.menu.save(date)">
+                                                                            OK
+                                                                        </v-btn>
+                                                                    </v-date-picker>
+                                                                </v-menu>
+                                                                <v-menu ref="menu" v-model="menu" :close-on-content-click="false" :return-value.sync="date" transition="scale-transition" offset-y min-width="auto">
+                                                                    <template v-slot:activator="{ on, attrs }">
+                                                                        <v-text-field v-model="profile.graduate_doctorate" label="วันที่จบการศึกษา" prepend-icon="mdi-calendar" readonly v-bind="attrs" v-on="on"></v-text-field>
+                                                                    </template>
+                                                                    <v-date-picker v-model="profile.graduate_doctorate" no-title scrollable>
+                                                                        <v-spacer></v-spacer>
+                                                                        <v-btn text color="primary" @click="menu = false">
+                                                                            Cancel
+                                                                        </v-btn>
+                                                                        <v-btn text color="primary" @click="$refs.menu.save(date)">
+                                                                            OK
+                                                                        </v-btn>
+                                                                    </v-date-picker>
+                                                                </v-menu>
+                                                                <v-text-field v-model="profile.gpa_doctorate" label="เกรดเฉลี่ย"></v-text-field>
+                                                                <v-text-field v-model="profile.honors_doctorate" label="เกียรตินิยม"></v-text-field>
+                                                                <v-select :items="use" item-text="name" item-value="value" v-model="profile.use_choice_con_doctorate" label="วุฒิที่ใช้"></v-select>
+                                                            </v-col>
+
+                                                        </v-row>
+                                                        <v-btn block type="submit" color="success">Save</v-btn>
+                                                    </v-form>
+                                                </v-container>
+                                                <small>*indicates required field</small>
+                                            </v-card-text>
+                                            <v-card-actions>
+                                                <v-spacer></v-spacer>
+                                                <v-btn color="blue darken-1" text @click="dialog = false">
+                                                    Close
+                                                </v-btn>
+                                            </v-card-actions>
+                                        </v-card>
+                                    </v-dialog>
+                                </v-row>
+                            </template>
                         </v-sheet>
                     </div>
                 </div>
@@ -191,23 +407,53 @@
 </template>
 
 <script>
-import {get , post} from '../../config/service'
-import { end_point , user } from '../../config/config';
+import {
+    get,
+    post
+} from '../../config/service'
+import {
+    end_point,
+    user,
+    updateuser
+} from '../../config/config';
 import axios from '@nuxtjs/axios'
 import Swal from 'sweetalert2'
-const url  = end_point + user
+const url = end_point + user
+const data = end_point + updateuser
 
 export default {
-   data() {
-      return {
-        profile: {},
-      }
+    data() {
+        return {
+            profile: {},
+            dialog: false,
+            form: {},
+            status: [{
+                    name: "ปฎิบัติงาน",
+                    value: 'ปฎิบัติงาน'
+                },
+                {
+                    name: "ลาศึกษา",
+                    value: 'ลาศึกษา'
+                },
+            ],
+            use: [{
+                    name: "ใช้",
+                    value: 'ใช้'
+                },
+                {
+                    name: "ไม่ใช้",
+                    value: 'ไม่ใช้'
+                },
+            ],
+        }
     },
-    async mounted(){
+    async mounted() {
         try {
             const response = await fetch(url, {
-              headers: {'Content-Type': 'application/json'},
-              credentials: 'include',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                credentials: 'include',
             })
             const content = await response.json();
             console.log(content)
@@ -216,24 +462,29 @@ export default {
             this.$nuxt.$emit('auth', true);
         } catch (error) {
             await Swal.fire({
-                    position: 'center',
-                    icon: 'error',
-                    title: 'ไม่พบข้อมูล',
-                    showConfirmButton: false,
-                    timer: 1000
-                    })
+                position: 'center',
+                icon: 'error',
+                title: 'ไม่พบข้อมูล',
+                showConfirmButton: false,
+                timer: 1000
+            })
         }
-        
-    },
-    
-}
 
+    },
+    methods: {
+        async saveData() {
+            this.profile = this.form
+            this.form.push(data)
+            this.dialog = false
+        }
+    }
+
+}
 </script>
 
 <style>
 /* .line {
     border: 2px solid black;
-    
 
 } */
 </style>

@@ -11,11 +11,20 @@
                     </div>
                     <div>
                         <div class="Hto">
+                            <v-menu offset-y>
+                                <template v-slot:activator="{ on, attrs }">
+                                    <v-btn v-bind="attrs" v-on="on">
+                                        กรุณาเลือกปี
+                                    </v-btn>
+                                </template>
+                                <v-list>
+                                    <v-list-item v-for="(academicd, index) in yearac" :key="index">
+                                        <v-list-item-title @click="DevelopmentplanState = 0">{{ academicd.year }}</v-list-item-title>
+                                    </v-list-item>
+                                </v-list>
+                            </v-menu>
                         </div>
                     </div>
-                    <v-btn block depressed elevation="1" large plain style="height:4vh;">2554-2557</v-btn>
-                    <v-btn block depressed elevation="1" large plain style="height:4vh;">2559-2562</v-btn>
-                    <v-btn block depressed elevation="1" large plain style="height:4vh;">2563-2566</v-btn>
 
                     <div>
 
@@ -28,22 +37,39 @@
     </div>
     <v-sheet class="p-1 m-1 w-3/4 h-full" color="white" elevation="5" height="76vh" width="74.5vw">
         <div class=" p-0 m-0 w-3/4 h-full  border-3 line rounded " style="width:74vw; height:75vh;">
-            <Core-WebViewer :path="`${publicPath}webviewer`" url="https://pdftron.s3.amazonaws.com/downloads/pl/demo-annotated.pdf"/>
+            <Core-WebViewer :path="`${publicPath}webviewer`" url="https://pdftron.s3.amazonaws.com/downloads/pl/demo-annotated.pdf" />
         </div>
     </v-sheet>
 </div>
 </template>
 
 <script>
-
-
 export default {
     name: '',
-    data (){
+    data() {
         return {
             publicPath: process.env.BASE_URL
         }
-    }
+    },
+    computed: {
+        DevelopmentplanState: {
+            get() {
+                // this.ContactTabinformation = this.$nuxt.$store.state.information
+                return this.$nuxt.$store.state.Developmentplan
+            },
+            set(val) {
+                // console.log('information', this.$nuxt.$store.state.information)
+                this.$store.commit('set_Developmentplan', val)
+                // console.log('information', this.$nuxt.$store.state.information)
+            }
+        },
+
+    },
+    methods: {
+        async test(x) {
+            console.log(x)
+        }
+    },
 
 }
 </script>

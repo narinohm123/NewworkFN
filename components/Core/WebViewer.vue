@@ -8,7 +8,8 @@ export default {
     name: 'WebViwer',
     props:{
         string: '',
-        url: ''
+        url: '',
+        
     },
     mounted: function (){
         import('@pdftron/webviewer').then(()=>{
@@ -25,7 +26,8 @@ export default {
 
 <style>
     #webviewer{
-        height: 74.5vh;
-        width: auto;
+        align-items: center;
+        height: 75vh;
+        width: 60vw;
     }
 </style>

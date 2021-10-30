@@ -22,14 +22,17 @@
             <tbody style="background:#F2F2F2; border: 2px solid white;">
                 
                 <tr v-for="datas,i in data" :key="i">
-                    <td>{{ datas.faculty }}</td>
-                    <td>{{ datas.budgetyear }}</td>
+                    <td class="text-center">{{ datas.budgetyear }}</td>
+                    <td class="text-center">{{ datas.initial_budget }}</td>
+                    <td class="text-center">{{ datas.total_budget }}</td>
+                    <td class="text-center">{{ datas.balance }}</td>
                 </tr>
             </tbody>
         </template>
     </v-simple-table>
 </div>
     <pre>{{data}}</pre>
+    <pre>{{year}}</pre>
     <!-- <pre>{{year}}</pre> -->
 </div>
 </template>
@@ -38,7 +41,7 @@
 import {
     end_point,
     budgets
-} from '../../config/config';
+} from '../../../config/config';
 const url = end_point + budgets
 import Swal from 'sweetalert2'
 export default {

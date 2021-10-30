@@ -25,8 +25,14 @@
             <tbody style="background:#F2F2F2; border: 2px solid white;">
                 
                 <tr v-for="datas,i in data" :key="i">
-                    <td>{{ datas.faculty }}</td>
-                    <td>{{ datas.master }}</td>
+                    <td class="text-center">{{ datas.id }}</td>
+                    <td >{{ datas.name }}</td>
+                    <td class="text-center">{{ datas.date_request_evaluate }}</td>
+                    <td class="text-center">{{ datas.date_evaluate }}</td>
+                    <td class="text-center">{{ datas.date_begin }}</td>
+                    <td class="text-center">{{ datas.date_full_term }}</td>
+                    <td class="text-center">{{ datas.position_rc }}</td>
+                    <td class="text-center">{{ datas.situation }}</td>
                 </tr>
             </tbody>
         </template>
@@ -41,7 +47,7 @@
 import {
     end_point,
     pending
-} from '../../config/config';
+} from '../../../config/config';
 const url = end_point + pending
 import Swal from 'sweetalert2'
 export default {

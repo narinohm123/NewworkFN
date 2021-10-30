@@ -49,12 +49,27 @@ export default {
   
   modules: [
     '@nuxtjs/axios',
+    '@nuxtjs/auth'
   ],
   
   axios:{
-    baseUrl : "http://127.0.0.1:8000/api/"
+    baseUrl : "http://127.0.0.1:8000/api/",
+    credentials: true
   },
-
+  auth: {
+    strategies: {
+      local: {
+        endpoints: {
+          login: { url: 'login', method: 'post', propertyName: 'data.token' },
+          user: { url: 'me', method: 'get', propertyName: 'data' },
+          logout: false
+        }
+      }
+    },
+    redirect: {
+      login: '/login'
+    }
+  },
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
     customVariables: ['~/assets/variables.scss'],

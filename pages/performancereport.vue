@@ -11,15 +11,21 @@
                     </div>
                     <div>
                         <div class="Hto">
+                            <v-menu offset-y>
+                                <template v-slot:activator="{ on, attrs }">
+                                    <v-btn v-bind="attrs" v-on="on">
+                                        กรุณาเลือกปี
+                                    </v-btn>
+                                </template>
+                                <v-list>
+                                    <v-list-item v-for="(academicd, index) in yearac" :key="index">
+                                        <v-list-item-title @click="PerformancereportState = 0">{{ academicd.year }}</v-list-item-title>
+                                    </v-list-item>
+                                </v-list>
+                            </v-menu>
                         </div>
                     </div>
-                    <v-btn block depressed elevation="1" large plain style="height:4vh;">2557</v-btn>
-                    <v-btn block depressed elevation="1" large plain style="height:4vh;">2558</v-btn>
-                    <v-btn block depressed elevation="1" large plain style="height:4vh;">2559</v-btn>
-                    <v-btn block depressed elevation="1" large plain style="height:4vh;">2560</v-btn>
-                    <v-btn block depressed elevation="1" large plain style="height:4vh;">2561</v-btn>
-                    <v-btn block depressed elevation="1" large plain style="height:4vh;">2562</v-btn>
-
+                    
                     <div>
 
                     </div>
@@ -31,20 +37,42 @@
     </div>
     <v-sheet class="p-1 m-1 w-3/4 h-full" color="white" elevation="5" height="76vh" width="74.5vw">
         <div class=" p-0 m-0 w-3/4 h-full  border-3 line rounded " style="width:74vw; height:75vh;">
-            <Core-WebViewerreport :path="`${publicPath}webviewerreport`" url="https://pdftron.s3.amazonaws.com/downloads/pl/demo-annotated.pdf"/>
+             <Core-WebViewerreport :path="`${publicPath}webviewer`" url="https://pdftron.s3.amazonaws.com/downloads/pl/demo-annotated.pdf" />
+            
         </div>
     </v-sheet>
 </div>
 </template>
 
 <script>
+
 export default {
     name: '',
     data (){
         return {
-            publicPath: process.env.BASE_URL
+            publicPath: process.env.BASE_URL,
+            academicdialog: false
         }
-    }
+    },
+    computed: {
+        PerformancereportState: {
+            get() {
+                // this.ContactTabinformation = this.$nuxt.$store.state.information
+                return this.$nuxt.$store.state.Developmentplan
+            },
+            set(val) {
+                // console.log('information', this.$nuxt.$store.state.information)
+                this.$store.commit('set_Developmentplan', val)
+                // console.log('information', this.$nuxt.$store.state.information)
+            }
+        },
+
+    },
+    methods: {
+        async test(x) {
+            console.log(x)
+        }
+    },
 
 }
 </script>

@@ -12,10 +12,22 @@
                     </div>
                     <div>
                         <div class="Hto">
+                            <v-btn @click="IncumbentState = 0">
+                                อนุมัติตำแหน่งทางวิชาการ
+
+                            </v-btn>
+                            <!-- <h1 class="p-1 m-1 w-1/1 h-full" style='font-size: 18px; '>บุคลากรสายวิชาการ</h1> -->
                         </div>
                     </div>
-                    <v-btn block depressed elevation="1" x-large large plain style="height:4vh;">อนุมัติตำแหน่งทางวิชาการ</v-btn>
-                    <v-btn block depressed elevation="1" x-large large plain style="height:4vh;">ไม่อนุมัติตำแหน่งทางวิชาการ</v-btn>
+                    <div>
+                        <div class="Hto">
+                            <v-btn @click="IncumbentState = 1">
+                                ไม่อนุมัติตำแหน่งทางวิชาการ
+
+                            </v-btn>
+                        </div>
+                    </div>
+
                     <div>
 
                     </div>
@@ -27,15 +39,72 @@
     </div>
     <v-sheet class="p-1 m-1 w-3/4 h-full" color="white" elevation="5" height="76vh" width="74.5vw">
         <div class=" p-0 m-0 w-3/4 h-full  border-3 line rounded " style="width:74vw; height:75vh;">
-            <Core-Datanoincumbent/>
+        <div v-if="IncumbentState == 0">
+                <Core-Peopleincumbent/>
+            </div>
+            <div v-if="IncumbentState == 1">
+                <Core-Peoplenoincumbent/>
+            </div>
         </div>
     </v-sheet>
 </div>
 </template>
 
 <script>
-export default {
+import {
+    end_point,
+    approval,
 
+} from '../../config/config';
+const url = end_point + approval
+
+export default {
+    data() {
+        return {
+            data: {},
+            academicdialog: false,
+            servicedialog: false,
+
+            yearac: [],
+
+        }
+
+    },
+    async mounted() {
+        try {
+            const response = await fetch(
+                url,
+                // console.log(fetch)
+            )
+            const content = await response.json().then()
+            console.log(content)
+            this.yearac = content
+            // this.year = content
+
+        } catch (error) {
+
+        }
+
+    },
+    computed: {
+        IncumbentState: {
+            get() {
+                // this.ContactTabinformation = this.$nuxt.$store.state.information
+                return this.$nuxt.$store.state.actionstatus
+            },
+            set(val) {
+                // console.log('information', this.$nuxt.$store.state.information)
+                this.$store.commit('set_actionstatus', val)
+                // console.log('information', this.$nuxt.$store.state.information)
+            }
+        },
+
+    },
+    methods: {
+        async test(x) {
+            console.log(x)
+        }
+    },
 }
 </script>
 
@@ -50,6 +119,7 @@ export default {
 .Hto {
     display: flex;
     justify-content: center;
+    height: 10vh;
 }
 
 .Data {
@@ -63,5 +133,16 @@ export default {
     justify-content: center;
     align-items: center;
     font-weight: bold;
+}
+
+thead tr th {
+    text-align: center;
+    background: #DEEBF7;
+    border: 2px solid white;
+}
+
+.Hp {
+    display: flex;
+    align-items: center;
 }
 </style>
