@@ -7,47 +7,47 @@
         </div>
     </div>
     <div class="HTable">
-    <v-simple-table>
-        <template v-slot:default>
-            <thead>
-                <tr>
-                    <th class="text-center font-weight-black" style=" font-size: 1em;" rowspan="2">ตำเเหน่ง</th>
-                    <th class="text-center" style=" font-size: 1em;" colspan="2">ระดับการศึกษา</th>
-                    <th class="text-center" style=" font-size: 1em;" colspan="4">ตำเเหน่งทางวิชาการ</th>
-                    <th class="text-center" style=" font-size: 1em;" colspan="2">สถานะ</th>
-                    <th class="text-center" style=" font-size: 1em;" colspan="1">รวม</th>
+        <v-simple-table>
+            <template v-slot:default>
+                <thead>
+                    <tr>
+                        <th class="text-center font-weight-black" style=" font-size: 1em;" rowspan="2">ตำเเหน่ง</th>
+                        <th class="text-center" style=" font-size: 1em;" colspan="2">ระดับการศึกษา</th>
+                        <th class="text-center" style=" font-size: 1em;" colspan="4">ตำเเหน่งทางวิชาการ</th>
+                        <th class="text-center" style=" font-size: 1em;" colspan="2">สถานะ</th>
+                        <th class="text-center" style=" font-size: 1em;" colspan="1">รวม</th>
 
-                </tr>
-                <tr>
-                    <th class="text-center" style=" font-size: 1em;">ปริญญาตรี</th>
-                    <th class="text-center" style=" font-size: 1em;">ปริญญาโท</th>
-                    <th class="text-center" style=" font-size: 1em;">ชำนาญการ</th>
-                    <th class="text-center" style=" font-size: 1em;">ชำนาญการพิเศษ</th>
-                    <th class="text-center" style=" font-size: 1em;">เชี่ยวชาญ</th>
-                    <th class="text-center" style=" font-size: 1em;">เชี่ยวชาญพิเศษ</th>
-                    <th class="text-center" style=" font-size: 1em;">ปฏิบัติงาน</th>
-                    <th class="text-center" style=" font-size: 1em;">ลาศึกษา</th>
-                    <th class="text-center" style=" font-size: 1em;"></th>
-                </tr>
+                    </tr>
+                    <tr>
+                        <th class="text-center" style=" font-size: 1em;">ปริญญาตรี</th>
+                        <th class="text-center" style=" font-size: 1em;">ปริญญาโท</th>
+                        <th class="text-center" style=" font-size: 1em;">ชำนาญการ</th>
+                        <th class="text-center" style=" font-size: 1em;">ชำนาญการพิเศษ</th>
+                        <th class="text-center" style=" font-size: 1em;">เชี่ยวชาญ</th>
+                        <th class="text-center" style=" font-size: 1em;">เชี่ยวชาญพิเศษ</th>
+                        <th class="text-center" style=" font-size: 1em;">ปฏิบัติงาน</th>
+                        <th class="text-center" style=" font-size: 1em;">ลาศึกษา</th>
+                        <th class="text-center" style=" font-size: 1em;"></th>
+                    </tr>
 
-            </thead>
-            <tbody style="background:#F2F2F2; border: 2px solid white;">
-                <tr v-for="datas,i in data" :key="i">
-                    <td>{{ datas.position }}</td>
-                    <td class="text-center">{{ datas.bhd }}</td>
-                    <td class="text-center">{{ datas.master }}</td>
-                    <td class="text-center">{{ datas.sf }}</td>
-                    <td class="text-center">{{ datas.specific_sf }}</td>
-                    <td class="text-center">{{ datas.prof }}</td>
-                    <td class="text-center">{{ datas.specific_prof }}</td>
-                    <td class="text-center">{{ datas.work }}</td>
-                    <td class="text-center">{{ datas.leave }}</td>
-                    <td class="text-center">{{ datas.total }}</td>
+                </thead>
+                <tbody style="background:#F2F2F2; border: 2px solid white;">
+                    <tr v-for="datas,i in data" :key="i">
+                        <td>{{ datas.s_position }}</td>
+                        <td class="text-center">{{ datas.s_bhd }}</td>
+                        <td class="text-center">{{ datas.s_master }}</td>
+                        <td class="text-center">{{ datas.s_sf }}</td>
+                        <td class="text-center">{{ datas.s_specific_sf }}</td>
+                        <td class="text-center">{{ datas.s_prof }}</td>
+                        <td class="text-center">{{ datas.s_specific_prof }}</td>
+                        <td class="text-center">{{ datas.s_work }}</td>
+                        <td class="text-center">{{ datas.s_leave }}</td>
+                        <td class="text-center">{{ datas.s_total }}</td>
 
-                </tr>
-            </tbody>
-        </template>
-    </v-simple-table>
+                    </tr>
+                </tbody>
+            </template>
+        </v-simple-table>
     </div>
     <pre>{{data}}</pre>
     <pre>{{year}}</pre>
@@ -103,10 +103,10 @@ thead tr th {
     border: 2px solid white;
 
 }
-.HTable{
+
+.HTable {
     margin: 10px;
     padding: 10px;
-    
-}
 
+}
 </style>

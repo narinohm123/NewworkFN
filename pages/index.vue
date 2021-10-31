@@ -35,7 +35,6 @@
 
 
 
-
     <div v-if="positionState == 0">
         <Subpage-actionstatus/>
     </div>

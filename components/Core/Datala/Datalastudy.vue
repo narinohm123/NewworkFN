@@ -34,9 +34,9 @@
                 </thead>
                 <tbody style="background:#F2F2F2; border: 2px solid white;">
 
-                    <tr v-for="datas,i in data" :key="i">
+                    <tr v-for="data,i in data" :key="i">
                         <td></td>
-                        <td class="text-center">{{ datas.degree }}</td>
+                        <td class="text-center">{{ data.degree }}</td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -48,30 +48,30 @@
                         <td></td>
                         <td></td>
                     </tr>
-                    <tr v-for="datas,i in data" :key="i">
+                    <tr v-for="data,i in data" :key="i">
                         <td class="text-center"></td>
-                        <td >{{ datas.name }}</td>
-                        <td class="text-center">{{ datas.start_date }}</td>
-                        <td class="text-center">{{ datas.end_date }}</td>
-                        <td class="text-center">{{ datas.total_time }}</td>
-                        <td class="text-center">{{ datas.bursary }}</td>
-                        <td class="text-center"></td>
-                        <td class="text-center"></td>
-                        <td class="text-center"></td>
-                        <td class="text-center">{{ datas.work }}</td>
-                        <td class="text-center">{{ datas.approval }}</td>
-                        <td class="text-center">{{ datas.requesting }}</td>
+                        <td>{{ data.name }}</td>
+                        <td class="text-center">{{ data.start_date }}</td>
+                        <td class="text-center">{{ data.end_date }}</td>
+                        <td class="text-center">{{ data.total_time }}</td>
+                        <td class="text-center">{{ data.bursary }}</td>
+                        <td class="text-center">{{ data.extend_time }}</td>
+                        <td class="text-center">{{ data.extend_begin }}</td>
+                        <td class="text-center">{{ data.extend_end }}</td>
+                        <td class="text-center">{{ data.work }}</td>
+                        <td class="text-center">{{ data.approval }}</td>
+                        <td class="text-center">{{ data.requesting }}</td>
                     </tr>
-                    <tr v-for="datas,i in data" :key="i">
+                    <tr v-for="data,i in data" :key="i">
                         <td class="text-center"></td>
-                        <td >{{ datas.university }}</td>
-                        <td ></td>
-                        <td ></td>
-                        <td ></td>
-                        <td ></td>
-                        <td ></td>
-                        <td ></td>
-                        <td ></td>
+                        <td>{{ data.university }}</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -92,7 +92,7 @@ import {
     studyleave
 } from '../../../config/config';
 const url = end_point + studyleave
-// const urls = end_point + leavetime
+const urls = end_point + leavetime
 import Swal from 'sweetalert2'
 export default {
     data() {
@@ -118,8 +118,19 @@ export default {
         } catch (error) {
 
         }
-    }
+        try {
+            const response = await fetch(
+                urls,
+                console.log(fetch)
+            )
+            const content = await response.json()
+            console.log(content)
+            this.data = content
+            this.year = content
 
+        } catch (error) {}
+
+    }
 }
 </script>
 

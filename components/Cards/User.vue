@@ -1,6 +1,6 @@
 <template>
-<div class="ml-3 mt-3">
-    <v-card width="200">
+<div class="ml-3 mt-3" style="">
+    <v-card width="300">
         <!-- <pre>
             {{post}}
         </pre> -->
@@ -12,6 +12,8 @@
             <img src="" alt="">
             <p>{{post.director_position}}</p>
             <p>{{post.position}}</p>
+            <p>{{post.phone}}</p>
+            <p>{{post.email}}</p>
         </v-card-text>
     </v-card>
 </div>

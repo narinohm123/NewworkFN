@@ -5,7 +5,7 @@
             <div class="p-0 m-0 w-3/4 h-full border-5 line rounded " style="height:75vh; width:22.5vw; ">
                 <div class="Herd">
                     <div class="Data">
-                        
+
                         <v-sheet class="Hdata" color="#AE78D6" elevation="4" height="50" rounded width="280" style='font-size: 20px; '>
                             ข้อมูลอัตรากำลัง
                         </v-sheet>
@@ -38,10 +38,104 @@
                             </v-list>
                         </v-menu>
                     </div>
-                    <div>
-                        
-                    </div>
+                    <div >
+                        <div style="display: flex; justify-content: space-around;height: 8vh;    align-items: center;">
+                            <div>
+                                <template>
+                                    <v-row justify="center">
+                                        <v-dialog v-model="dialog" fullscreen persistent max-width="100vw">
+                                            <template v-slot:activator="{ on, attrs }">
+                                                <v-btn color="primary" dark v-bind="attrs" v-on="on">
+                                                    เเก้ไข
+                                                </v-btn>
+                                            </template>
+                                            <v-card>
+                                                <v-card-title>
+                                                    <span class="text-h5">เเก้ไขข้อมูลอัตรากำลัง</span>
+                                                </v-card-title>
+                                                <v-card-text>
+                                                    <v-container>
+                                                        <v-form @submit.prevent="saveData()">
+                                                            <v-row>
+                                                                <v-col cols="2">
+                                                                    <v-text-field class="text-center" v-model="data.position" label="สาขาวิชา"></v-text-field>
+                                                                    <v-text-field class="text-center" v-model="data.master" label="ปริญญาโท"></v-text-field>
+                                                                    <v-text-field class="text-center" v-model="data.phd" label="ปริญญาเอก"></v-text-field>
+                                                                    <v-text-field class="text-center" v-model="data.exteach" label="ผู้ช่วยสอน"></v-text-field>
+                                                                    <v-text-field class="text-center" v-model="data.teach" label="อาจารย์"></v-text-field>
+                                                                    <v-text-field class="text-center" v-model="data.asst_prof" label="ผศ."></v-text-field>
+                                                                    <v-text-field class="text-center" v-model="data.assoc_prof" label="รศ."></v-text-field>
+                                                                    <v-text-field class="text-center" v-model="data.work" label="ปฏิบัติงาน"></v-text-field>
+                                                                    <v-text-field class="text-center" v-model="data.leave" label="ลาศึกษา"></v-text-field>
+                                                                    <v-text-field class="text-center" v-model="data.total" label="รวม"></v-text-field>
+                                                                </v-col>
 
+                                                            </v-row>
+                                                            <v-btn block type="submit" color="success">Save</v-btn>
+                                                        </v-form>
+                                                    </v-container>
+                                                    <small>*indicates required field</small>
+                                                </v-card-text>
+                                                <v-card-actions>
+                                                    <v-spacer></v-spacer>
+                                                    <v-btn color="blue darken-1" text @click="dialog = false">
+                                                        Close
+                                                    </v-btn>
+                                                </v-card-actions>
+                                            </v-card>
+                                        </v-dialog>
+                                    </v-row>
+                                </template>
+                            </div>
+                            <div>
+                                <template>
+                                    <v-row justify="center">
+                                        <v-dialog v-model="dialog" fullscreen persistent max-width="100vw">
+                                            <template v-slot:activator="{ on, attrs }">
+                                                <v-btn color="primary" dark v-bind="attrs" v-on="on">
+                                                    เเก้ไข
+                                                </v-btn>
+                                            </template>
+                                            <v-card>
+                                                <v-card-title>
+                                                    <span class="text-h5">เเก้ไขข้อมูลอัตรากำลัง</span>
+                                                </v-card-title>
+                                                <v-card-text>
+                                                    <v-container>
+                                                        <v-form @submit.prevent="saveData()">
+                                                            <v-row>
+                                                                <v-col cols="2">
+                                                                    <v-text-field class="text-center" v-model="data.s_position" label="ตำแหน่ง"></v-text-field>
+                                                                    <v-text-field class="text-center" v-model="data.s_bhd" label="ปริญญาตรี"></v-text-field>
+                                                                    <v-text-field class="text-center" v-model="data.s_master" label="ปริญญาโท"></v-text-field>
+                                                                    <v-text-field class="text-center" v-model="data.s_sf" label="ชำนาญการ"></v-text-field>
+                                                                    <v-text-field class="text-center" v-model="data.s_specific_sf" label="ชำนาญการพิเศษ"></v-text-field>
+                                                                    <v-text-field class="text-center" v-model="data.s_prof" label="เชี่ยวชาญ"></v-text-field>
+                                                                    <v-text-field class="text-center" v-model="data.s_specific_prof" label="เชี่ยวชาญพิเศษ"></v-text-field>
+                                                                    <v-text-field class="text-center" v-model="data.s_work" label="ปฏิบัติงาน"></v-text-field>
+                                                                    <v-text-field class="text-center" v-model="data.s_leave" label="ลาศึกษา"></v-text-field>
+                                                                    <v-text-field class="text-center" v-model="data.s_total" label="รวม"></v-text-field>
+                                                                </v-col>
+
+                                                            </v-row>
+                                                            <v-btn block type="submit" color="success">Save</v-btn>
+                                                        </v-form>
+                                                    </v-container>
+                                                    <small>*indicates required field</small>
+                                                </v-card-text>
+                                                <v-card-actions>
+                                                    <v-spacer></v-spacer>
+                                                    <v-btn color="blue darken-1" text @click="dialog = false">
+                                                        Close
+                                                    </v-btn>
+                                                </v-card-actions>
+                                            </v-card>
+                                        </v-dialog>
+                                    </v-row>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </v-sheet>
@@ -122,12 +216,17 @@ export default {
                 // console.log('information', this.$nuxt.$store.state.information)
             }
         },
-        
+
     },
     methods: {
-        async test(x){
-            console.log(x)
+        async saveData() {
+            this.data = this.form
+            this.form.push(data)
+            this.dialog = false
         }
+        // async test(x) {
+        //     console.log(x)
+        // }
     },
 }
 </script>
@@ -175,5 +274,6 @@ thead tr th {
     text-align: center;
     background: #DEEBF7;
     border: 2px solid white;
+    
 }
 </style>

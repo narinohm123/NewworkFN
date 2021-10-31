@@ -91,9 +91,11 @@
                 </v-app-bar>
             </div>
         </div>
-        
-        <div class="Homepage" @click="push('/')">
-            <v-btn depressed outlined plain raised>หน้าเเรก</v-btn>
+
+        <div>
+            <v-row class="Home" align="center" justify="space-around" style="display: block;">
+                <v-btn @click="this.$router.push({name: '/'})">หน้าเเรก</v-btn>
+            </v-row>
         </div>
     </div>
 </div>
@@ -242,8 +244,10 @@ export default {
 
 }
 
-.Homepage {
+.Home {
     position: relative;
-    left: -1rem
+    left: -0.625rem;
+    top: 6px;
+
 }
 </style>

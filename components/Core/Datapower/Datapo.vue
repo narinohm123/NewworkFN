@@ -3,7 +3,7 @@
     <div>
         <div style="height: 1.5vh;"></div>
         <div class="Hed">
-            <h1 class="font-weight-black" style=" font-size: 1.2em;">ข้อมูลอัตรากำลังบุคลากรสายวิชาการ ประจำปีงบประมาณ </h1>
+            <h1 class="font-weight-black" style=" font-size: 1.2em;">ข้อมูลอัตรากำลังบุคลากรสายวิชาการ ประจำปีงบประมาณ{{year}} </h1>
         </div>
     </div>
     <div class="HTable">
@@ -32,7 +32,7 @@
                 </thead>
                 <tbody style="background:#F2F2F2; border: 2px solid white;">
                     <tr v-for="datas,i in data" :key="i">
-                        <td>{{ datas.position }}</td>
+                        <td>{{ datas.faculty }}</td>
                         <td class="text-center">{{ datas.master }}</td>
                         <td class="text-center">{{ datas.phd }}</td>
                         <td class="text-center">{{ datas.exteach }}</td>
@@ -65,7 +65,7 @@ export default {
         return {
             data: {},
             // year: {
-            //     year: ""
+            //     data: ""
             // }
 
         }

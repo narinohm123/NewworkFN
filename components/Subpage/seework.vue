@@ -9,7 +9,7 @@
                             ข้อมูลการอบรม/สัมมนา/ดูงาน
                         </v-sheet>
                     </div>
-                     <div style="height:3vh;"></div>
+                    <div style="height:3vh;"></div>
                     <div style="display: flex; justify-content: space-around;">
                         <v-menu offset-y>
                             <template v-slot:activator="{ on, attrs }">
@@ -23,8 +23,58 @@
                                 </v-list-item>
                             </v-list>
                         </v-menu>
+                        <div>
+                            <div>
+                                <template>
+                                    <v-row justify="center">
+                                        <v-dialog v-model="dialog" fullscreen persistent max-width="100vw">
+                                            <template v-slot:activator="{ on, attrs }">
+                                                <v-btn color="primary" dark v-bind="attrs" v-on="on">
+                                                    Open
+                                                </v-btn>
+                                            </template>
+                                            <v-card>
+                                                <v-card-title>
+                                                    <span class="text-h5">เเก้ไขข้อมูล</span>
+                                                </v-card-title>
+                                                <v-card-text>
+                                                    <v-container>
+                                                        <v-form @submit.prevent="saveData()">
+                                                            <v-row>
+                                                                <v-col cols="2">
+                                                                    <v-text-field class="text-center" v-model="year.position" label="สาขาวิชา"></v-text-field>
+                                                                    <v-text-field class="text-center" v-model="year.total" label="จำนวนเต็ม"></v-text-field>
+                                                                    <v-text-field class="text-center" v-model="year.train_people" label="คน"></v-text-field>
+                                                                    <v-text-field class="text-center" v-model="year.train_time" label="ครั้ง"></v-text-field>
+                                                                    <v-text-field class="text-center" v-model="year.seminar_people" label="คน"></v-text-field>
+                                                                    <v-text-field class="text-center" v-model="year.seminar_time" label="ครั้ง"></v-text-field>
+                                                                    <v-text-field class="text-center" v-model="year.observe_people" label="คน"></v-text-field>
+                                                                    <v-text-field class="text-center" v-model="year.observe_time" label="ครั้ง"></v-text-field>
+                                                                    
+                                                                   
+                                                                </v-col>
+
+                                                            </v-row>
+                                                            <v-btn block type="submit" color="success">Save</v-btn>
+                                                        </v-form>
+                                                    </v-container>
+                                                    <small>*indicates required field</small>
+                                                </v-card-text>
+                                                <v-card-actions>
+                                                    <v-spacer></v-spacer>
+                                                    <v-btn color="blue darken-1" text @click="dialog = false">
+                                                        Close
+                                                    </v-btn>
+                                                </v-card-actions>
+                                            </v-card>
+                                        </v-dialog>
+                                    </v-row>
+                                </template>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
-            </div>
             </div>
         </v-sheet>
 
@@ -68,7 +118,6 @@ export default {
         } catch (error) {
 
         }
-        
 
     },
     computed: {
@@ -83,10 +132,10 @@ export default {
                 // console.log('information', this.$nuxt.$store.state.information)
             }
         },
-        
+
     },
     methods: {
-        async test(x){
+        async test(x) {
             console.log(x)
         }
     },
@@ -105,8 +154,6 @@ export default {
     display: flex;
     justify-content: center;
 }
-
-
 
 .Data {
     display: flex;

@@ -16,7 +16,7 @@
                         <v-menu offset-y>
                             <template v-slot:activator="{ on, attrs }">
                                 <v-btn v-bind="attrs" v-on="on">
-                                   เลือกข้อมูลสายบริการเเละสายสนับสนุน
+                                    เลือกข้อมูลสายบริการเเละสายสนับสนุน
                                 </v-btn>
                             </template>
                             <v-list>
@@ -25,7 +25,52 @@
                                 </v-list-item>
                             </v-list>
                         </v-menu>
-                        
+                        <div>
+                            <div>
+                                <template>
+                                    <v-row justify="center">
+                                        <v-dialog v-model="dialog" fullscreen persistent max-width="100vw">
+                                            <template v-slot:activator="{ on, attrs }">
+                                                <v-btn color="primary" dark v-bind="attrs" v-on="on">
+                                                    Open
+                                                </v-btn>
+                                            </template>
+                                            <v-card>
+                                                <v-card-title>
+                                                    <span class="text-h5">เเก้ไขข้อมูล</span>
+                                                </v-card-title>
+                                                <v-card-text>
+                                                    <v-container>
+                                                        <v-form @submit.prevent="saveData()">
+                                                            <v-row>
+                                                                <v-col cols="2">
+                                                                    <v-text-field class="text-center" v-model="faculty.budgetyear" label="ปีงบประมาณ"></v-text-field>
+                                                                    <v-text-field class="text-center" v-model="faculty.initial_budget" label="งบประมาณตั้งต้น"></v-text-field>
+                                                                    <v-text-field class="text-center" v-model="faculty.total_budget" label="ใช้งบประมาณทั้งสิ้น"></v-text-field>
+                                                                    <v-text-field class="text-center" v-model="faculty.balance" label="คงเหลือ"></v-text-field>
+
+                                                                </v-col>
+
+                                                            </v-row>
+                                                            <v-btn block type="submit" color="success">Save</v-btn>
+                                                        </v-form>
+                                                    </v-container>
+                                                    <small>*indicates required field</small>
+                                                </v-card-text>
+                                                <v-card-actions>
+                                                    <v-spacer></v-spacer>
+                                                    <v-btn color="blue darken-1" text @click="dialog = false">
+                                                        Close
+                                                    </v-btn>
+                                                </v-card-actions>
+                                            </v-card>
+                                        </v-dialog>
+                                    </v-row>
+                                </template>
+                            </div>
+
+                        </div>
+
                     </div>
 
                 </div>
@@ -73,7 +118,6 @@ export default {
         } catch (error) {
 
         }
-        
 
     },
     computed: {
@@ -88,10 +132,15 @@ export default {
                 // console.log('information', this.$nuxt.$store.state.information)
             }
         },
-        
+
     },
     methods: {
-        async test(x){
+        // async saveData() {
+        //     this.year = this.form
+        //     this.form.push(data)
+        //     this.dialog = false
+        // }
+        async test(x) {
             console.log(x)
         }
     },
@@ -123,6 +172,7 @@ export default {
     align-items: center;
     font-weight: bold;
 }
+
 thead tr th {
     text-align: center;
     background: #DEEBF7;

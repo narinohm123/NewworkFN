@@ -45,7 +45,7 @@
            </div> -->
             <!-- <Card-Pagination> -->
             <template>
-                <div class="d-flex flex-wrap">
+                <div class="d-flex flex-wrap ">
                     <Cards-User v-for="(post, i) in users" :key="i" :post="post" />
                 </div>
             </template>
