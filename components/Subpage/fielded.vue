@@ -39,7 +39,7 @@
 
     </div>
     <v-sheet class="p-1 m-1 w-3/4 h-full" color="white" elevation="5" height="76vh" width="74.5vw">
-        <div class=" p-0 m-0 w-3/4 h-full  border-3 line rounded " style="width:74vw; height:75vh;">
+        <div class=" p-0 m-0 w-3/4 h-full  border-3 line rounded " style="width:74vw; height:75vh; display:flex; justify-content: space-between;">
             <!-- <div class="d-flex wrap " v-for="(user,index) in users" :key="index">
                <Cards-User :fname="user.first_name" :lname="user.last_name" />
            </div> -->

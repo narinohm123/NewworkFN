@@ -26,63 +26,65 @@
                         </v-menu>
                     </div>
                     <div>
-                        <div>
-                            <template>
-                                <v-row justify="center">
-                                    <v-dialog v-model="dialog" fullscreen persistent max-width="100vw">
-                                        <template v-slot:activator="{ on, attrs }">
-                                            <v-btn color="primary" dark v-bind="attrs" v-on="on">
-                                                Open
-                                            </v-btn>
-                                        </template>
-                                        <v-card>
-                                            <v-card-title>
-                                                <span class="text-h5">เเก้ไขข้อมูลบุคลากรดีเด่น ประจำปีงบประมาณ</span>
-                                            </v-card-title>
-                                            <v-card-text>
-                                                <v-container>
-                                                    <h1 style=" font-size: 2em;">ข้อมูลบุคลากรดีเด่นบุคลากรสายวิชาการ</h1>
-                                                    <v-form @submit.prevent="saveData()">
-
-                                                        <v-row>
-                                                            <v-col cols="2">
-                                                                <v-text-field class="text-center" v-model="yearso.rank" label="ปีงบประมาณ"></v-text-field>
-                                                                <v-text-field class="text-center" v-model="yearso.type_a" label="งบประมาณตั้งต้น"></v-text-field>
-                                                                <v-text-field class="text-center" v-model="yearso.name" label="ใช้งบประมาณทั้งสิ้น"></v-text-field>
-
-                                                            </v-col>
-
-                                                        </v-row>
-                                                        <v-btn block type="submit" color="success">Save</v-btn>
-                                                    </v-form>
-                                                    <div style="height: 1.5vh;"></div>
-                                                    <h1 style=" font-size: 2em;">ข้อมูลบุคลากรดีเด่นบุคลากรสายบริการ</h1>
-                                                    <v-form @submit.prevent="saveData()">
-
-                                                        <v-row>
-                                                            <v-col cols="2">
-                                                                <v-text-field class="text-center" v-model="yearao.rank" label="ปีงบประมาณ"></v-text-field>
-                                                                <v-text-field class="text-center" v-model="yearao.type_a" label="งบประมาณตั้งต้น"></v-text-field>
-                                                                <v-text-field class="text-center" v-model="yearao.name" label="ใช้งบประมาณทั้งสิ้น"></v-text-field>
-
-                                                            </v-col>
-
-                                                        </v-row>
-                                                        <v-btn block type="submit" color="success">Save</v-btn>
-                                                    </v-form>
-                                                </v-container>
-                                                <small>*indicates required field</small>
-                                            </v-card-text>
-                                            <v-card-actions>
-                                                <v-spacer></v-spacer>
-                                                <v-btn color="blue darken-1" text @click="dialog = false">
-                                                    Close
+                        <div style="display: flex; justify-content: center; height: 5vh;">
+                            <div style="display: flex;align-items: flex-end;">
+                                <template>
+                                    <v-row justify="center">
+                                        <v-dialog v-model="dialog" fullscreen persistent max-width="100vw">
+                                            <template v-slot:activator="{ on, attrs }">
+                                                <v-btn color="primary" dark v-bind="attrs" v-on="on">
+                                                    Open
                                                 </v-btn>
-                                            </v-card-actions>
-                                        </v-card>
-                                    </v-dialog>
-                                </v-row>
-                            </template>
+                                            </template>
+                                            <v-card>
+                                                <v-card-title>
+                                                    <span class="text-h5">เเก้ไขข้อมูลบุคลากรดีเด่น ประจำปีงบประมาณ</span>
+                                                </v-card-title>
+                                                <v-card-text>
+                                                    <v-container>
+                                                        <h1 style=" font-size: 2em;">ข้อมูลบุคลากรดีเด่นบุคลากรสายวิชาการ</h1>
+                                                        <v-form @submit.prevent="saveData()">
+
+                                                            <v-row>
+                                                                <v-col cols="2">
+                                                                    <v-text-field class="text-center" v-model="yearso.rank" label="ปีงบประมาณ"></v-text-field>
+                                                                    <v-text-field class="text-center" v-model="yearso.type_a" label="งบประมาณตั้งต้น"></v-text-field>
+                                                                    <v-text-field class="text-center" v-model="yearso.name" label="ใช้งบประมาณทั้งสิ้น"></v-text-field>
+
+                                                                </v-col>
+
+                                                            </v-row>
+                                                            <v-btn block type="submit" color="success">Save</v-btn>
+                                                        </v-form>
+                                                        <div style="height: 1.5vh;"></div>
+                                                        <h1 style=" font-size: 2em;">ข้อมูลบุคลากรดีเด่นบุคลากรสายบริการ</h1>
+                                                        <v-form @submit.prevent="saveData()">
+
+                                                            <v-row>
+                                                                <v-col cols="2">
+                                                                    <v-text-field class="text-center" v-model="yearao.rank" label="ปีงบประมาณ"></v-text-field>
+                                                                    <v-text-field class="text-center" v-model="yearao.type_a" label="งบประมาณตั้งต้น"></v-text-field>
+                                                                    <v-text-field class="text-center" v-model="yearao.name" label="ใช้งบประมาณทั้งสิ้น"></v-text-field>
+
+                                                                </v-col>
+
+                                                            </v-row>
+                                                            <v-btn block type="submit" color="success">Save</v-btn>
+                                                        </v-form>
+                                                    </v-container>
+                                                    <small>*indicates required field</small>
+                                                </v-card-text>
+                                                <v-card-actions>
+                                                    <v-spacer></v-spacer>
+                                                    <v-btn color="blue darken-1" text @click="dialog = false">
+                                                        Close
+                                                    </v-btn>
+                                                </v-card-actions>
+                                            </v-card>
+                                        </v-dialog>
+                                    </v-row>
+                                </template>
+                            </div>
                         </div>
                     </div>
 

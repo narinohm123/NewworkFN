@@ -1,5 +1,8 @@
 import colors from 'vuetify/es5/util/colors'
 
+
+
+
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
@@ -56,20 +59,21 @@ export default {
     baseUrl : "http://127.0.0.1:8000/api/",
     credentials: true
   },
-  auth: {
-    strategies: {
-      local: {
-        endpoints: {
-          login: { url: 'login', method: 'post', propertyName: 'data.token' },
-          user: { url: 'me', method: 'get', propertyName: 'data' },
-          logout: false
-        }
-      }
-    },
-    redirect: {
-      login: '/login'
-    }
-  },
+
+  // auth: {
+  //   strategies: {
+  //     local: {
+  //       endpoints: {
+  //         login: { url: 'login', method: 'post', propertyName: 'data.token' },
+  //         user: { url: 'me', method: 'get', propertyName: 'data' },
+  //         logout: false
+  //       }
+  //     }
+  //   },
+  //   redirect: {
+  //     login: '/auth/login'
+  //   }
+  // },
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
     customVariables: ['~/assets/variables.scss'],

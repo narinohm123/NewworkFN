@@ -50,8 +50,7 @@
                                                                     <v-text-field class="text-center" v-model="year.seminar_time" label="ครั้ง"></v-text-field>
                                                                     <v-text-field class="text-center" v-model="year.observe_people" label="คน"></v-text-field>
                                                                     <v-text-field class="text-center" v-model="year.observe_time" label="ครั้ง"></v-text-field>
-                                                                    
-                                                                   
+
                                                                 </v-col>
 
                                                             </v-row>
@@ -98,12 +97,31 @@ const url = end_point + events
 export default {
     data() {
         return {
+
             academicdialog: false,
             servicedialog: false,
             year: [],
+
         }
 
     },
+    // methods: {
+    //     getData() {
+    //         this.axios.get(url).then((result) => {
+    //             console.warn(result)
+    //             this.users = result.data
+    //         })
+    //     },
+    //     deleteUser(id) {
+    //         this.axios.delete(url + id).then((result) => {
+    //             this.getData();
+    //         })
+    //     }
+    // },
+    // mounted() {
+    //     this.getData()
+    // },
+
     async mounted() {
         try {
             const response = await fetch(
@@ -130,6 +148,9 @@ export default {
                 // console.log('information', this.$nuxt.$store.state.information)
                 this.$store.commit('set_datasee', val)
                 // console.log('information', this.$nuxt.$store.state.information)
+            },
+            saveData() {
+                return this.$nuxt.$store.state.datasee
             }
         },
 
@@ -139,6 +160,20 @@ export default {
             console.log(x)
         }
     },
+
+    // methods: {
+    //     submitSearch() {
+    //         this.$route.push({
+    //             name: 'search',
+    //             query: {
+    //                 q: this.q
+    //             }
+    //         });
+
+    //also tried the following
+    //nuxt.$router.push({name: 'search', query: {q: this.q}});
+
+    // }
 }
 </script>
 

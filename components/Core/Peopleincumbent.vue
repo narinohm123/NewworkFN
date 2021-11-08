@@ -1,8 +1,9 @@
 <template>
 <div>
 <div class="HTable">
-    fyjdgfj
+    null
 </div>
+
     <pre>{{data}}</pre>
     <!-- <pre>{{year}}</pre> -->
 </div>

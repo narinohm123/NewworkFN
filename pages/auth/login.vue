@@ -80,7 +80,7 @@ import Swal from 'sweetalert2'
 export default {
     data() {
         return {
-            // dialog: true,
+            dialog: true,
             username: '',
             password: '',
             // token: '',

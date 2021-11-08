@@ -103,16 +103,16 @@
                                         <p class="m-0 mb-0 p-1">วุฒิที่ใช้บรรจุ</p>
                                     </div>
                                     <div class="border-l-2 p-1 ">
-                                        <!-- <p  class="m-0 mb-0 p-1">{{ profile.degree}}</p>
-                                        <p  class="m-0 mb-0 p-1">{{ profile.faculty}}</p>
-                                        <p  class="m-0 mb-0 p-1">{{ profile.university}}</p>
-                                        <p  class="m-0 mb-0 p-1">{{ profile.province}}</p>
-                                        <p  class="m-0 mb-0 p-1">{{ profile.country}}</p>
-                                        <p  class="m-0 mb-0 p-1">{{ profile.study_date}}</p>
-                                        <p  class="m-0 mb-0 p-1">{{ profile.graduate}}</p>
-                                        <p  class="m-0 mb-0 p-1">{{ profile.gpa}}</p>
-                                        <p  class="m-0 mb-0 p-1">{{ profile.honors}}</p>
-                                        <p  class="m-0 mb-0 p-1">{{ profile.use_choice_con}}</p> -->
+                                        <p class="m-0 mb-0 p-1">{{ profile.degree}}</p>
+                                        <p class="m-0 mb-0 p-1">{{ profile.faculty}}</p>
+                                        <p class="m-0 mb-0 p-1">{{ profile.university}}</p>
+                                        <p class="m-0 mb-0 p-1">{{ profile.province}}</p>
+                                        <p class="m-0 mb-0 p-1">{{ profile.country}}</p>
+                                        <p class="m-0 mb-0 p-1">{{ profile.study_date}}</p>
+                                        <p class="m-0 mb-0 p-1">{{ profile.graduate}}</p>
+                                        <p class="m-0 mb-0 p-1">{{ profile.gpa}}</p>
+                                        <p class="m-0 mb-0 p-1">{{ profile.honors}}</p>
+                                        <p class="m-0 mb-0 p-1">{{ profile.use_choice_con}}</p>
                                     </div>
 
                                 </div>
@@ -136,16 +136,16 @@
                                         <p class="m-0 mb-0 p-1">วุฒิที่ใช้บรรจุ</p>
                                     </div>
                                     <div class="border-l-2 p-1 ">
-                                        <!-- <p  class="m-0 mb-0 p-1">{{ profile.degree_Master}}</p>
-                                        <p  class="m-0 mb-0 p-1">{{ profile.faculty_Master}}</p>
-                                        <p  class="m-0 mb-0 p-1">{{ profile.university_Master}}</p>
-                                        <p  class="m-0 mb-0 p-1">{{ profile.province_Master}}</p>
-                                        <p  class="m-0 mb-0 p-1">{{ profile.country_Master}}</p>
-                                        <p  class="m-0 mb-0 p-1">{{ profile.study_date_Master}}</p>
-                                        <p  class="m-0 mb-0 p-1">{{ profile.graduate_Master}}</p>
-                                        <p  class="m-0 mb-0 p-1">{{ profile.gpa_Master}}</p>
-                                        <p  class="m-0 mb-0 p-1">{{ profile.honors_Master}}</p>
-                                        <p  class="m-0 mb-0 p-1">{{ profile.use_choice_con_Master}}</p> -->
+                                        <p class="m-0 mb-0 p-1">{{ profile.degree_Master}}</p>
+                                        <p class="m-0 mb-0 p-1">{{ profile.faculty_Master}}</p>
+                                        <p class="m-0 mb-0 p-1">{{ profile.university_Master}}</p>
+                                        <p class="m-0 mb-0 p-1">{{ profile.province_Master}}</p>
+                                        <p class="m-0 mb-0 p-1">{{ profile.country_Master}}</p>
+                                        <p class="m-0 mb-0 p-1">{{ profile.study_date_Master}}</p>
+                                        <p class="m-0 mb-0 p-1">{{ profile.graduate_Master}}</p>
+                                        <p class="m-0 mb-0 p-1">{{ profile.gpa_Master}}</p>
+                                        <p class="m-0 mb-0 p-1">{{ profile.honors_Master}}</p>
+                                        <p class="m-0 mb-0 p-1">{{ profile.use_choice_con_Master}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -167,23 +167,24 @@
                                         <p class="m-0 mb-0 p-1">วุฒิที่ใช้บรรจุ</p>
                                     </div>
                                     <div class="border-l-2 p-1 ">
-                                        <!-- <p  class="m-0 mb-0 p-1">{{ profile.degree_doctorate}}</p>
-                                        <p  class="m-0 mb-0 p-1">{{ profile.faculty_doctorate}}</p>
-                                        <p  class="m-0 mb-0 p-1">{{ profile.university_doctorate}}</p>
-                                        <p  class="m-0 mb-0 p-1">{{ profile.province_doctorate}}</p>
-                                        <p  class="m-0 mb-0 p-1">{{ profile.country_doctorate}}</p>
-                                        <p  class="m-0 mb-0 p-1">{{ profile.study_date_doctorate}}</p>
-                                        <p  class="m-0 mb-0 p-1">{{ profile.graduate_doctorate}}</p>
-                                        <p  class="m-0 mb-0 p-1">{{ profile.gpa_doctorate}}</p>
-                                        <p  class="m-0 mb-0 p-1">{{ profile.honors_doctorate}}</p>
-                                        <p  class="m-0 mb-0 p-1">{{ profile.use_choice_con_doctorate}}</p> -->
+                                        <p class="m-0 mb-0 p-1">{{ profile.degree_doctorate}}</p>
+                                        <p class="m-0 mb-0 p-1">{{ profile.faculty_doctorate}}</p>
+                                        <p class="m-0 mb-0 p-1">{{ profile.university_doctorate}}</p>
+                                        <p class="m-0 mb-0 p-1">{{ profile.province_doctorate}}</p>
+                                        <p class="m-0 mb-0 p-1">{{ profile.country_doctorate}}</p>
+                                        <p class="m-0 mb-0 p-1">{{ profile.study_date_doctorate}}</p>
+                                        <p class="m-0 mb-0 p-1">{{ profile.graduate_doctorate}}</p>
+                                        <p class="m-0 mb-0 p-1">{{ profile.gpa_doctorate}}</p>
+                                        <p class="m-0 mb-0 p-1">{{ profile.honors_doctorate}}</p>
+                                        <p class="m-0 mb-0 p-1">{{ profile.use_choice_con_doctorate}}</p>
                                     </div>
                                 </div>
                             </div>
+
                             <template>
-                                <v-row justify="center">
+                                <v-row justify="center" style="display: flex; align-content: flex-end; height: 68vh;">
                                     <v-dialog v-model="dialog" fullscreen persistent max-width="100vw">
-                                        <template v-slot:activator="{ on, attrs }">
+                                        <template v-slot:activator="{ on, attrs }" >
                                             <v-btn color="primary" dark v-bind="attrs" v-on="on">
                                                 Open Dialog
                                             </v-btn>
@@ -402,7 +403,7 @@
             </div>
         </div>
     </div>
-    <pre> {{profile}} </pre>
+    <!-- <pre> {{profile}} </pre> -->
 </div>
 </template>
 
@@ -487,4 +488,9 @@ export default {
     border: 2px solid black;
 
 } */
+.gg{
+    position: relative;
+    height: 20px;
+    width: 10px;
+}
 </style>

@@ -175,9 +175,7 @@ export default {
         async logout() {
             await fetch(url, {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
+                headers: {'Content-Type': 'application/json'},
                 credentials: 'include',
 
                 // localStorage.removeItem('username'),

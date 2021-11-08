@@ -33,12 +33,14 @@
                             </template>
                             <v-list>
                                 <v-list-item v-for="(service, index) in yearsv" :key="index">
-                                    <v-list-item-title @click="PowerrateState = 1, test(service.year)">{{ service.year }}</v-list-item-title>
+                                    <v-list-item-title @click="PowerrateState = 1">{{ service.year }}</v-list-item-title>
                                 </v-list-item>
                             </v-list>
                         </v-menu>
                     </div>
                     <div >
+                        <div>
+                        </div>
                         <div style="display: flex; justify-content: space-around;height: 8vh;    align-items: center;">
                             <div>
                                 <template>
@@ -196,7 +198,7 @@ export default {
             )
             const ct = await rs.json().then()
             console.log(ct)
-            this.yearsv = content
+            this.yearsv = ct
             // this.year = content
 
         } catch (error) {

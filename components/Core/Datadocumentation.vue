@@ -26,12 +26,19 @@
                 <tbody style="background:#F2F2F2; border: 2px solid white;">
 
                     <tr v-for="datas,i in data" :key="i">
-                        <td>{{ datas.faculty }}</td>
-                        <td>{{ datas.master }}</td>
+                        <td>{{ datas.name }}</td>
+                        <td>{{ datas.Author }}</td>
+                        <td>{{ datas.faculty_doc }}</td>
+                        <td>{{ datas.date_request }}</td>
+                        <td>{{ datas.date_evaluate }}</td>
+                        <td>{{ datas.date_expire }}</td>
+                        <td>{{ datas.level_evaluate_tech }}</td>
+                        <td>{{ datas.level_evaluate_document }}</td>
+                        <td>{{ datas.no_evaluate }}</td>
                     </tr>
                 </tbody>
 
-                <v-file-input v-model="files" color="deep-purple accent-4" counter label="File input" multiple placeholder="Select your files" prepend-icon="mdi-paperclip" outlined :show-size="1000">
+                <!-- <v-file-input v-model="files" color="deep-purple accent-4" counter label="File input" multiple placeholder="Select your files" prepend-icon="mdi-paperclip" outlined :show-size="1000">
                     <template v-slot:selection="{ index, text }">
                         <v-chip v-if="index < 2" color="deep-purple accent-4" dark label small>
                             {{ text }}
@@ -41,7 +48,7 @@
                             +{{ files.length - 2 }} File(s)
                         </span>
                     </template>
-                </v-file-input>
+                </v-file-input> -->
 
             </template>
         </v-simple-table>
