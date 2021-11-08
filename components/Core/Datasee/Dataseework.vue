@@ -54,7 +54,7 @@
 </template>
 
 <script>
-import {
+import { 
     mapState,
     mapMutations,
     mapActions,

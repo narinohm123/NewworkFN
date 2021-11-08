@@ -149,9 +149,9 @@ export default {
                 this.$store.commit('set_datasee', val)
                 // console.log('information', this.$nuxt.$store.state.information)
             },
-            saveData() {
-                return this.$nuxt.$store.state.datasee
-            }
+            // saveData() {
+            //     return this.$nuxt.$store.state.datasee
+            // }
         },
 
     },
